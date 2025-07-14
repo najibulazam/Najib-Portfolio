@@ -1,0 +1,15 @@
+src/
+│
+├── assets/
+│   └── profile.jpg
+├── components/
+│   ├── Navbar.jsx
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Projects.jsx
+│   ├── Contact.jsx
+│   └── Footer.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
