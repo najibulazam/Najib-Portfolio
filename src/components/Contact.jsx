@@ -29,15 +29,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen px-6 py-8 max-w-4xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors pt-6"
+      className="px-6 py-8 max-w-4xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Contact section with form and social links"
     >
-      <h2 className="text-4xl font-bold mb-6 text-cyan-400 text-center">Contact Me</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Contact Me</h2>
 
       <form
         ref={form}
         onSubmit={sendEmail}
-        className="bg-gray-800 p-8 rounded-lg shadow-md max-w-xl mx-auto flex flex-col space-y-6"
+        className="bg-gray-800 p-4 sm:p-8 rounded-lg shadow-md max-w-xl mx-auto flex flex-col space-y-4 sm:space-y-6"
         aria-describedby="form-status"
       >
         <label htmlFor="name" className="block text-gray-300 font-semibold mb-1">Name</label>

@@ -107,7 +107,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <ul className="md:hidden bg-black/90 backdrop-blur-md flex flex-col space-y-4 py-6 px-8 font-mono text-white text-lg absolute w-full top-16 left-0 animate-slideDown">
+        <ul className="md:hidden bg-black/95 backdrop-blur-md flex flex-col space-y-4 py-6 px-8 font-mono text-white text-lg absolute w-full top-16 left-0 z-50 animate-slideDown border-b border-gray-700">
           {NAV_ITEMS.map(({ id, label }) => (
             <li
               key={id}
@@ -133,9 +133,10 @@ export default function Navbar() {
             href="/Md_Najib_Ul_Azam_Mahi_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg transition duration-300 text-center"
+            className="mt-4 text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-lg transition duration-300 text-center flex items-center justify-center gap-2"
           >
             Resume
+            <FaDownload className="text-base" />
           </a>
         </ul>
       )}

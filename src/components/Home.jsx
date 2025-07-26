@@ -52,7 +52,7 @@ export default function Home() {
     >
       <AnimatedBackground />
 
-      <div className="relative z-10 w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden">
+      <div className="relative z-10 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full overflow-hidden">
         <img
           src={profileImg}
           alt="Md Najib Ul Azam Mahi"
@@ -60,11 +60,11 @@ export default function Home() {
         />
       </div>
 
-      <h1 className="relative z-10 mt-8 text-3xl sm:text-5xl font-bold tracking-wide text-black dark:text-white">
+      <h1 className="relative z-10 mt-6 text-2xl sm:text-3xl md:text-5xl font-bold tracking-wide text-black dark:text-white text-center px-4">
         Md Najib Ul Azam Mahi
       </h1>
 
-      <div className="relative z-10 mt-4 text-xl sm:text-2xl text-cyan-400 h-8">
+      <div className="relative z-10 mt-4 text-lg sm:text-xl md:text-2xl text-cyan-400 h-8 text-center px-4">
         {displayText}
         <span className="animate-pulse">|</span>
       </div>

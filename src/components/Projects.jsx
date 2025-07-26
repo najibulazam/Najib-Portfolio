@@ -79,12 +79,12 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 py-12 max-w-7xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      className="px-6 py-12 max-w-7xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Projects Section"
     >
-      <h2 className="text-4xl font-bold mb-10 text-cyan-400 text-center">Projects</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-10 text-cyan-400 text-center">Projects</h2>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map(({ id, title, description, image, techStack, github, demo }) => (
           <article
             key={id}

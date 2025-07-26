@@ -31,16 +31,16 @@ export default function Extracurriculars() {
       className="px-6 py-8 max-w-5xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Extracurricular section"
     >
-      <h2 className="text-4xl font-bold mb-6 text-cyan-400 text-center">Extracurriculars</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Extracurriculars</h2>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {extracurricularData.map((item, idx) => (
           <article
             key={idx}
-            className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-cyan-500 transition"
+            className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-cyan-500 transition"
           >
             <p className="text-sm text-gray-500 dark:text-gray-400">{item.time}</p>
-            <h3 className="text-lg font-semibold mt-1">
+            <h3 className="text-base sm:text-lg font-semibold mt-1">
               {item.role} - <span className={`${item.orgColor}`}>{item.org}</span>
             </h3>
             <div className="flex gap-2 mt-3 flex-wrap">
