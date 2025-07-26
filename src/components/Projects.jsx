@@ -72,53 +72,53 @@ const projects = [
     techStack: ['Django', 'Tailwind CSS'],
     github: 'https://github.com/najibulazam/Django-Health-Care-APP',
     demo: '#',
-  }
+  },
 ];
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen px-6 py-8 max-w-7xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors pt-6"
-      aria-label="Projects showcase"
+      className="min-h-screen px-6 py-12 max-w-7xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      aria-label="Projects Section"
     >
-      <h2 className="text-4xl font-bold mb-6 text-cyan-400 text-center">Projects</h2>
+      <h2 className="text-4xl font-bold mb-10 text-cyan-400 text-center">Projects</h2>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map(({ id, title, description, image, techStack, github, demo }) => (
           <article
             key={id}
-            className="bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col"
+            className="bg-gray-800 rounded-2xl shadow-md hover:shadow-cyan-500 transition-all duration-300 overflow-hidden flex flex-col"
           >
             <img
               src={image}
-              alt={`${title} preview`}
+              alt={`${title} screenshot`}
               className="w-full h-48 object-cover"
               loading="lazy"
             />
 
-            <div className="p-4 flex flex-col flex-grow">
+            <div className="p-5 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold mb-2">{title}</h3>
-              <p className="text-gray-300 flex-grow">{description}</p>
+              <p className="text-gray-300 text-sm flex-grow">{description}</p>
 
-              <div className="mt-3 flex flex-wrap gap-2">
-                {techStack.map((tech) => (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {techStack.map((tech, idx) => (
                   <span
-                    key={tech}
-                    className="bg-cyan-600 text-cyan-100 text-xs font-semibold rounded px-2 py-1"
+                    key={idx}
+                    className="bg-cyan-600 text-cyan-100 text-xs font-semibold rounded-full px-3 py-1"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-4 flex space-x-4">
+              <div className="mt-5 flex items-center gap-4">
                 <a
                   href={github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`GitHub repo of ${title}`}
-                  className="text-gray-300 hover:text-cyan-400 transition text-2xl"
+                  aria-label={`GitHub for ${title}`}
+                  className="text-gray-300 hover:text-cyan-400 transition text-xl"
                 >
                   <FaGithub />
                 </a>
@@ -127,7 +127,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Live demo of ${title}`}
-                  className="text-gray-300 hover:text-cyan-400 transition text-2xl"
+                  className="text-gray-300 hover:text-cyan-400 transition text-xl"
                 >
                   <FaExternalLinkAlt />
                 </a>

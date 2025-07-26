@@ -4,10 +4,11 @@ import AnimatedBackground from "../AnimatedBackground";
 
 const roles = [
   "Backend Developer",
-  "API Specialist",
-  "Django & FastAPI Developer",
+  "Django Developer",
   "AI/ML Enthusiast",
   "Tech Explorer",
+  "API Developer",
+  "DRF (Django REST Framework) Developer"
 ];
 
 export default function Home() {
