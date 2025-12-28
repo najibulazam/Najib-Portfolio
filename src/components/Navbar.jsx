@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
+import logo from '../assets/dev-logo-najib.png';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
@@ -54,8 +55,9 @@ export default function Navbar() {
     <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors">
       <nav className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between h-16 font-mono text-black dark:text-white">
         {/* Logo */}
-        <div className="text-xl font-bold cursor-pointer select-none" onClick={() => scrollTo('home')}>
-          Najib
+        <div className="flex items-center gap-2 text-xl font-bold cursor-pointer select-none" onClick={() => scrollTo('home')}>
+          <img src={logo} alt="Najib Logo" className="h-8 w-8 sm:h-10 sm:w-10" />
+          <span>Najib</span>
         </div>
 
         {/* Desktop Menu */}

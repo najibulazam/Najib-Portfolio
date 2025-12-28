@@ -4,23 +4,16 @@ const extracurricularData = [
   {
     role: 'IT Secretary',
     org: 'ECE Club of HSTU',
-    time: 'February 2025 – Present',
-    tags: ['IT Support', 'Technical Assistance', 'System Monitoring', 'Event Tech Setup', 'Troubleshooting'],
-    orgColor: 'text-blue-400',
+    time: 'February 2025 – October 2025',
+    tags: ['Technical Leadership', 'IT Infrastructure', 'Event Technology', 'System Management'],
+    orgColor: 'text-cyan-400',
   },
   {
     role: 'IT Secretary',
     org: 'HSTU Career Club',
-    time: 'January 2025 – Present',
-    tags: ['Career Event Tech Support', 'Documents Maintenance', 'Email/Comms Support', 'Digital Scheduling'],
-    orgColor: 'text-blue-400',
-  },
-  {
-    role: 'Graphic Designer',
-    org: 'IEEE Computer Society HSTU Student Branch Chapter',
-    time: 'May 2025 – Present',
-    tags: ['Poster Design', 'Social Media Content', 'Event Branding', 'UI/UX Concepts', 'Technical Illustration'],
-    orgColor: 'text-blue-400',
+    time: 'January 2025 – October 2025',
+    tags: ['Technical Operations', 'Digital Systems', 'Career Event Support'],
+    orgColor: 'text-cyan-400',
   },
 ];
 
@@ -31,7 +24,7 @@ export default function Extracurriculars() {
       className="px-6 py-8 max-w-5xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Extracurricular section"
     >
-      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Extracurriculars</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Leadership & Volunteering</h2>
 
       <div className="space-y-4 sm:space-y-6">
         {extracurricularData.map((item, idx) => (

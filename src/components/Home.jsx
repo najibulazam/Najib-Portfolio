@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import profileImg from "../assets/profile.png";
+import profileImg from "../assets/profile.jpg";
 import AnimatedBackground from "../AnimatedBackground";
 
 const roles = [
-  "Backend Developer",
-  "Django Developer",
-  "AI/ML Enthusiast",
-  "Tech Explorer",
-  "API Developer",
-  "DRF (Django REST Framework) Developer"
+  "Full Stack Developer",
+  "Django & FastAPI Engineer",
+  "AI & LLM Integration Specialist",
+  "REST API Developer",
+  "React Developer",
+  "RAG Systems Builder"
 ];
 
 export default function Home() {
