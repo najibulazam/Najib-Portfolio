@@ -38,7 +38,7 @@ export default function About() {
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-8 text-cyan-400 text-center">About Me</h2>
 
-      <p className="max-w-4xl mx-auto mb-12 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify px-4 lg:px-0">
+      <p className="max-w-4xl mx-auto mb-12 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify px-4 lg:px-0 hyphens-auto">
         Full Stack Developer specializing in Python, Django, FastAPI, and React, with hands-on experience building scalable web applications and AI-integrated systems. Proven ability to design RESTful APIs, implement secure authentication, and integrate LLM-based features such as RAG chatbots and automated screening pipelines. Strong foundation in software engineering principles, SDLC, and deployment on cloud platforms. Seeking a junior software engineering role to contribute to real-world, production systems.
       </p>
 
@@ -47,15 +47,15 @@ export default function About() {
       <div className="grid md:grid-cols-3 gap-4 sm:gap-6 mb-12 max-w-5xl mx-auto">
         <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
           <h4 className="font-semibold text-cyan-400 mb-3 text-base">Backend Engineering</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Building scalable REST APIs with Django and FastAPI. JWT authentication, database design, and clean architecture.</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Building scalable REST APIs with Django and FastAPI. JWT authentication, database design, and clean architecture.</p>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
           <h4 className="font-semibold text-cyan-400 mb-3 text-base">AI Integration</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Implementing RAG systems, LLM pipelines, semantic search, and multi-agent architectures using Groq and embeddings.</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Implementing RAG systems, LLM pipelines, semantic search, and multi-agent architectures using Groq and embeddings.</p>
         </div>
         <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
           <h4 className="font-semibold text-cyan-400 mb-3 text-base">Frontend Development</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Creating responsive interfaces with React and Vite. API integration and modern UI/UX implementation.</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Creating responsive interfaces with React and Vite. API integration and modern UI/UX implementation.</p>
         </div>
       </div>
 

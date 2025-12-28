@@ -1,4 +1,6 @@
 import React from 'react';
+import ostadLogo from '../assets/ostad_logo.png';
+import harvardLogo from '../assets/harvard_logo.png';
 
 const educationData = [
   {
@@ -17,6 +19,7 @@ const certifications = [
     year: 'August 2024 – July 2025',
     link: 'https://ostad.app/share/certificate/c28928-md-najib-ul-azam-mahi',
     description: 'REST API design, JWT authentication, and Agile practices with Django REST Framework and React',
+    logo: ostadLogo,
   },
   {
     title: "CS50's Introduction to Programming with Python",
@@ -24,6 +27,7 @@ const certifications = [
     year: 'June 2024 – September 2024',
     link: 'https://certificates.cs50.io/555d892f-d4c6-49e3-9ada-4b342eb5fff2.pdf',
     description: 'Applied software design patterns, problem-solving, and algorithmic thinking in hands-on exercises',
+    logo: harvardLogo,
   },
 ];
 
@@ -74,7 +78,10 @@ export default function Education() {
             className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-cyan-500 transition"
           >
             <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+            <div className="flex items-center gap-2 mb-1">
+              <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" />
+              <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+            </div>
             <p className="text-xs text-gray-500 dark:text-gray-500 mt-1 mb-3">{cert.year}</p>
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{cert.description}</p>
             <a
