@@ -38,7 +38,7 @@ export default function About() {
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-8 text-cyan-400 text-center">About Me</h2>
 
-      <p className="max-w-4xl mx-auto mb-12 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify px-4 lg:px-0 hyphens-auto">
+      <p className="max-w-4xl mx-auto mb-12 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-left px-4 lg:px-0 hyphens-auto">
         Full Stack Developer specializing in Python, Django, FastAPI, and React, with hands-on experience building scalable web applications and AI-integrated systems. Proven ability to design RESTful APIs, implement secure authentication, and integrate LLM-based features such as RAG chatbots and automated screening pipelines. Strong foundation in software engineering principles, SDLC, and deployment on cloud platforms. Seeking a junior software engineering role to contribute to real-world, production systems.
       </p>
 
