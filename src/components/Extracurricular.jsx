@@ -21,7 +21,7 @@ export default function Extracurriculars() {
   return (
     <section
       id="extracurriculars"
-      className="px-6 py-8 max-w-5xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      className="px-6 py-8 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Extracurricular section"
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Leadership & Volunteering</h2>
@@ -30,13 +30,13 @@ export default function Extracurriculars() {
         {extracurricularData.map((item, idx) => (
           <article
             key={idx}
-            className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-cyan-500 transition"
+            className="relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group"
           >
             <p className="text-sm text-gray-500 dark:text-gray-400">{item.time}</p>
             <h3 className="text-base sm:text-lg font-semibold mt-1">
               {item.role} - <span className={`${item.orgColor}`}>{item.org}</span>
             </h3>
-            <div className="flex gap-2 mt-3 flex-wrap">
+            <div className="relative z-10 flex gap-2 mt-3 flex-wrap">
               {item.tags.map((tag, i) => (
                 <span
                   key={i}

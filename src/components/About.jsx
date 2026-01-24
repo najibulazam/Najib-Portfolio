@@ -45,17 +45,26 @@ export default function About() {
       <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-cyan-300 text-center">What I Do</h3>
 
       <div className="grid md:grid-cols-3 gap-4 sm:gap-6 mb-12 max-w-5xl mx-auto">
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
-          <h4 className="font-semibold text-cyan-400 mb-3 text-base">Backend Engineering</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Building scalable REST APIs with Django and FastAPI. JWT authentication, database design, and clean architecture.</p>
+        <div className="relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl p-5 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <h4 className="font-semibold text-cyan-400 mb-3 text-base">Backend Engineering</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Building scalable REST APIs with Django and FastAPI. JWT authentication, database design, and clean architecture.</p>
+          </div>
         </div>
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
-          <h4 className="font-semibold text-cyan-400 mb-3 text-base">AI Integration</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Implementing RAG systems, LLM pipelines, semantic search, and multi-agent architectures using Groq and embeddings.</p>
+        <div className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl p-5 shadow-md hover:shadow-lg hover:shadow-purple-500/50 hover:-translate-y-1 hover:border-purple-500/50 transition-all duration-300 group">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <h4 className="font-semibold text-purple-400 mb-3 text-base">AI Integration</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Implementing RAG systems, LLM pipelines, semantic search, and multi-agent architectures using Groq and embeddings.</p>
+          </div>
         </div>
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-5 shadow-md hover:shadow-cyan-500 transition-all duration-300">
-          <h4 className="font-semibold text-cyan-400 mb-3 text-base">Frontend Development</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Creating responsive interfaces with React and Vite. API integration and modern UI/UX implementation.</p>
+        <div className="relative overflow-hidden bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-5 shadow-md hover:shadow-lg hover:shadow-green-500/50 hover:-translate-y-1 hover:border-green-500/50 transition-all duration-300 group">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative z-10">
+            <h4 className="font-semibold text-green-400 mb-3 text-base">Frontend Development</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed hyphens-auto">Creating responsive interfaces with React and Vite. API integration and modern UI/UX implementation.</p>
+          </div>
         </div>
       </div>
 
@@ -65,12 +74,13 @@ export default function About() {
         {techStack.map(({ name, icon }) => (
           <div
             key={name}
-            className="flex flex-col items-center space-y-2 bg-gray-100 dark:bg-gray-800 rounded-xl p-3 sm:p-4 shadow-md hover:shadow-cyan-500 hover:scale-105 transition-all duration-300"
+            className="relative overflow-hidden flex flex-col items-center space-y-2 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group"
             aria-label={name}
             title={name}
           >
-            <div className="text-3xl sm:text-4xl">{icon}</div>
-            <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-200 text-center">{name}</span>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative z-10 text-3xl sm:text-4xl">{icon}</div>
+            <span className="relative z-10 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-200 text-center">{name}</span>
           </div>
         ))}
       </div>

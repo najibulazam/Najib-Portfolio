@@ -1,7 +1,20 @@
 # Portfolio Content - Full Stack Developer with AI Integration
 
+**Last Updated:** January 2026
+
 ## Professional Summary
-Full Stack Developer specializing in building production-ready web applications with AI capabilities. I architect and develop end-to-end solutions using Django, FastAPI, and React, with expertise in integrating LLM-powered features through RAG pipelines and multi-agent systems. My work bridges traditional full-stack development with modern AI technologies, creating intelligent applications that solve real-world problems.
+Full Stack Developer specializing in Python, Django, FastAPI, and React, with hands-on experience building scalable web applications and AI-integrated systems. Proven ability to design RESTful APIs, implement secure authentication, and integrate LLM-based features such as RAG chatbots and automated screening pipelines. Strong foundation in software engineering principles, SDLC, and deployment on cloud platforms. Seeking a junior software engineering role to contribute to real-world, production systems.
+
+---
+
+## Portfolio Design Features
+
+### Modern UI/UX Enhancements
+- **Glassmorphic Navbar:** Enhanced backdrop blur, gradient logo with glow effect, modern nav items with gradient backgrounds and animated underlines
+- **Hero Section:** Rotating gradient border on profile image, animated pulsing glow, gradient text effects, floating status badges (Open to Work, Freelance Available, Remote Friendly)
+- **Gradient Card Designs:** All sections feature modern gradient backgrounds (cyan-blue, purple-pink, green-emerald) with hover lift effects and colored shadows
+- **Enhanced Footer:** Gradient dividers, animated social icons, back-to-top button, "Made with Love" section
+- **Consistent Styling:** Smooth animations, scale transforms, gradient overlays, border glows throughout
 
 ---
 
@@ -19,56 +32,91 @@ Full Stack Developer specializing in building production-ready web applications 
 
 ### Backend Engineering
 Building scalable REST APIs with Django and FastAPI. JWT authentication, database design, and clean architecture.
+**Card Color:** Cyan-Blue Gradient
 
 ### AI Integration
 Implementing RAG systems, LLM pipelines, semantic search, and multi-agent architectures using Groq and embeddings.
+**Card Color:** Purple-Pink Gradient
 
 ### Frontend Development
 Creating responsive interfaces with React and Vite. API integration and modern UI/UX implementation.
+**Card Color:** Green-Emerald Gradient
+
+---
+
+## Experience Section
+
+### Shwapnobunon – Sustainable E-commerce Platform
+**Role:** Full-Stack Developer (Contract)
+**Duration:** Dec 2025 - Present
+**Live Site:** https://shwapnobunon.com
+
+Delivered a production-ready full-stack e-commerce platform for a sustainability-focused client, handling end-to-end development from requirements to deployment. Built secure backend services with FastAPI and PostgreSQL (Supabase), developed customer-facing and admin interfaces using React with protected access, and implemented authentication, email notifications, and file storage. Deployed and maintained all services on Vercel, working closely with non-technical stakeholders to iterate quickly and ship features into production.
+
+**Tech Stack:** Python, FastAPI, React, PostgreSQL, Supabase, JWT, Vercel
 
 ---
 
 ## Featured Projects
 
 ### 1. Organic E-Commerce Platform with RAG AI Chatbot
-**Tech Stack:** Django REST, React, PostgreSQL, RAG, Groq LLaMA, Sentence Transformers
+**Role:** Python/Django/FastAPI, React, PostgreSQL, RAG, Groq LLaMA
+**GitHub:** https://github.com/najibulazam/Organic-E-Commerce-Store-with-RAG-AI-Chatbot
+**YouTube Demo:** aKyxNjcqaik
 
 Production-ready full-stack e-commerce platform featuring a RAG-based AI chatbot for intelligent product search and recommendations. Implemented semantic search using Sentence Transformers and Groq LLaMA 70B for natural language queries.
 
 **Key Features:**
-- RAG-based AI chatbot for product search and recommendations
-- Secure token-based authentication
-- Order management and admin dashboard
-- Clean REST APIs
-- Semantic search capabilities
+- Architected and implemented RAG-based AI chatbot for product search and intelligent recommendations
+- Built full-stack e-commerce platform with Django REST backend and React frontend
+- Integrated Sentence Transformers for semantic search and Groq LLaMA 70B for natural language processing
+- Designed secure authentication system and order management with clean REST APIs
 
 ---
 
 ### 2. AI-Powered Resume Screening System
-**Tech Stack:** FastAPI, React, Groq LLaMA, Multi-Agent AI, NLP
+**Role:** FastAPI, React, Groq LLaMA, Multi-Agent AI
+**GitHub:** https://github.com/najibulazam/AI-Powered-Resume-Screening-System
+**YouTube Demo:** 7_f4v_M6gjw
 
 Automated resume screening platform with multi-agent AI architecture. Processes 100+ resumes against job descriptions using FastAPI backend and React frontend. Delivers HIRE/MAYBE/REJECT decisions with detailed scoring and explainable feedback.
 
 **Key Features:**
-- Multi-agent AI pipeline (parser, matcher, scorer, feedback)
-- Automated resume screening against job descriptions
-- Batch processing of 100+ resumes
-- Explainable decisions with detailed scoring
-- FastAPI backend with React frontend
+- Designed and implemented multi-agent AI pipeline (parser, matcher, scorer, feedback generator)
+- Built scalable FastAPI backend for batch resume processing against job descriptions
+- Integrated Groq LLaMA for intelligent resume analysis with explainable AI decisions
+- Developed React frontend for file uploads, real-time progress tracking, and result visualization
 
 ---
 
 ### 3. AI-Enhanced Online Voting System
-**Tech Stack:** Django REST, React, JWT, Groq LLM
+**Role:** Django REST, React, JWT, Groq LLaMA
+**GitHub:** https://github.com/najibulazam/AI-Enhanced-Online-Voting-System-Using-Django-REST-and-React
+**YouTube Demo:** PcM5U-E5JYY
 
 Secure online voting platform with JWT authentication and vote-once-per-position enforcement. Features AI-generated voting insights and real-time analytics powered by Groq LLM for intelligent data interpretation.
 
 **Key Features:**
-- Secure JWT authentication
-- Vote-once-per-position enforcement
-- AI-generated voting insights
-- Real-time analytics
-- Clean REST APIs
+- Implemented secure JWT authentication and vote-once-per-position enforcement
+- Designed REST APIs for ballot creation, vote submission, and analytics
+- Integrated Groq LLM for AI-generated voting insights and intelligent data interpretation
+- Developed responsive React frontend with real-time voting analytics dashboard
+
+---
+
+## Contact Section - Open to Opportunities
+
+### Full-Time Roles
+Actively seeking junior software engineering positions where I can contribute to production systems.
+**Icon:** SVG Code brackets with gradient
+
+### Freelance Projects
+Available for contract work on web applications and AI integration projects.
+**Icon:** SVG Lightning bolt with gradient
+
+### Collaborations
+Open to contributing to open-source projects and team collaborations.
+**Icon:** SVG Connected nodes with gradient
 
 ---
 

@@ -35,7 +35,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="px-6 py-8 max-w-5xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      className="px-6 py-8 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Education section"
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Education</h2>
@@ -44,12 +44,12 @@ export default function Education() {
         {educationData.map((edu, idx) => (
           <article
             key={idx}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-cyan-500 transition"
+            className="relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group"
           >
             <img
               src={edu.logo}
               alt={edu.institute}
-              className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto sm:mx-0"
+              className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto sm:mx-0 rounded-lg"
             />
             <div className="text-center sm:text-left w-full">
               <h3 className="text-lg sm:text-xl font-semibold">{edu.institute}</h3>
@@ -75,20 +75,21 @@ export default function Education() {
         {certifications.map((cert, idx) => (
           <article
             key={idx}
-            className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-cyan-500 transition"
+            className="relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-4 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group"
           >
-            <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <h4 className="relative z-10 font-semibold text-base mb-2">{cert.title}</h4>
+            <div className="relative z-10 flex items-center gap-2 mb-1">
               <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" />
               <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1 mb-3">{cert.year}</p>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{cert.description}</p>
+            <p className="relative z-10 text-xs text-gray-500 dark:text-gray-500 mt-1 mb-3">{cert.year}</p>
+            <p className="relative z-10 text-sm text-gray-700 dark:text-gray-300 mb-3">{cert.description}</p>
             <a
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold py-2 px-4 rounded transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="relative z-10 inline-block bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold py-2 px-4 rounded transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               View Certificate
             </a>
