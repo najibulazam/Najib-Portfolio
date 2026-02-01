@@ -4,13 +4,13 @@ const projects = [
   {
     id: 1,
     title: 'Organic E-Commerce Platform with RAG AI Chatbot',
-    role: 'React | DRF | PostgreSQL | RAG AI',
-    description: 'Built a scalable full-stack e-commerce platform with AI-driven product discovery.',
+    techStack: 'React · Django REST · PostgreSQL · RAG · Groq LLaMA',
+    role: 'Solo Project',
     keyPoints: [
-      'Developed React + Django REST system serving 40+ products across 17 categories',
-      'Implemented RAG chatbot using Sentence Transformers and Groq LLaMA 70B for context-aware recommendations',
-      'Built semantic search with cosine similarity for accurate product and FAQ retrieval',
-      'Deployed production system on Render (backend) and Netlify (frontend) with optimized response time (<2s)',
+      'Built a full-stack e-commerce platform with AI-powered product discovery',
+      'Implemented RAG chatbot using Sentence Transformers for intelligent product recommendations',
+      'Enabled semantic search with cosine similarity for accurate product retrieval',
+      'Reduced customer support queries through AI-driven FAQ responses',
     ],
     youtubeId: 'nmiAoFS4qHA',
     github: 'https://github.com/najibulazam/Organic-E-Commerce-Store-with-RAG-AI-Chatbot',
@@ -18,13 +18,13 @@ const projects = [
   {
     id: 2,
     title: 'AI-Powered Resume Screening System',
-    role: 'FastAPI | React | Python | AI Agents ',
-    description: 'Designed an automated resume screening engine using multi-agent AI architecture.',
+    techStack: 'FastAPI · React · Multi-Agent AI · Groq LLaMA',
+    role: 'Solo Project',
     keyPoints: [
-      'Built specialized AI agents for resume parsing, skill matching, scoring, and feedback',
-      'Developed FastAPI REST services supporting batch processing of 100+ resumes',
-      'Implemented explainable scoring logic (HIRE / MAYBE / REJECT) aligned with job descriptions',
-      'Added production features including rate limiting, logging, validation, and cost monitoring',
+      'Automated resume screening for high-volume recruitment workflows',
+      'Built multi-agent AI pipeline (parser, matcher, scorer, feedback generator)',
+      'Delivered explainable hiring decisions (HIRE / MAYBE / REJECT) with detailed scoring',
+      'Processed 100+ resumes in batch with production-grade error handling',
     ],
     youtubeId: 'hLPt59CWvtM',
     github: 'https://github.com/najibulazam/AI-Powered-Resume-Screening-System',
@@ -32,13 +32,13 @@ const projects = [
   {
     id: 3,
     title: 'AI-Enhanced Online Voting System',
-    role: 'Django REST | React | PostgreSQL | JWT',
-    description: 'Created a secure, AI-assisted online voting and analytics platform with customized authentication feature.',
+    techStack: 'Django REST · React · PostgreSQL · JWT · Groq LLM',
+    role: 'Solo Project',
     keyPoints: [
-      'Implemented JWT-based authentication with one-vote-per-position enforcement',
-      'Designed RESTful APIs for voting, analytics, and real-time result aggregation',
-      'Integrated LLM-powered insights (Groq LLaMA) for summaries, turnout analysis, and predictions',
-      'Optimized performance using API caching and frontend lazy loading',
+      'Created secure online voting platform for elections and polls',
+      'Implemented JWT authentication with vote-once-per-position enforcement',
+      'Integrated AI-powered analytics for voting insights and turnout predictions',
+      'Improved decision-making with real-time results and intelligent summaries',
     ],
     youtubeId: 'aLXKEUvnah4',
     github: 'https://github.com/najibulazam/AI-Enhanced-Online-Voting-System-Using-Django-REST-and-React',
@@ -55,7 +55,7 @@ export default function Projects() {
       <h2 className="text-2xl sm:text-4xl font-bold mb-10 text-cyan-400 text-center">Projects</h2>
 
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        {projects.map(({ id, title, role, description, keyPoints, youtubeId, github }) => (
+        {projects.map(({ id, title, techStack, role, keyPoints, youtubeId, github }) => (
           <article
             key={id}
             className="relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-2xl shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 flex flex-col group"
@@ -67,17 +67,18 @@ export default function Projects() {
                 src={`https://www.youtube.com/embed/${youtubeId}`}
                 title={`${title} Demo Video`}
                 frameBorder="0"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
             </div>
 
             <div className="relative z-10 p-5 flex flex-col flex-grow">
-              <h3 className="text-xl font-semibold mb-1">{title}</h3>
-              <p className="text-cyan-400 text-sm mb-3 font-medium">{role}</p>
-              <p className="text-gray-300 text-sm mb-3">{description}</p>
+              <h3 className="text-lg font-bold mb-2">{title}</h3>
+              <p className="text-cyan-400 text-sm mb-2 font-medium">{techStack}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-xs mb-3 italic">{role}</p>
 
-              <ul className="text-gray-300 text-xs space-y-2 mb-4 list-disc list-inside">
+              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 mb-4 list-disc list-inside">
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="leading-relaxed">{point}</li>
                 ))}

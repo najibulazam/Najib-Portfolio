@@ -1,6 +1,6 @@
 import React from 'react';
 import ostadLogo from '../assets/ostad_logo.png';
-import harvardLogo from '../assets/harvard_logo.png';
+import harvardLogo from '../assets/harvard_logo.webp';
 
 const educationData = [
   {
@@ -35,7 +35,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="px-6 py-8 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Education section"
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Education</h2>

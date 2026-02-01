@@ -37,33 +37,36 @@ export default function Footer() {
           </p>
 
           {/* Quick Links & Social */}
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
             {/* Social Links */}
-            <div className="flex items-center gap-3 text-lg">
+            <div className="flex items-center gap-3">
               <a 
                 href="https://github.com/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-110 transform"
-                aria-label="GitHub"
+                className="flex items-center gap-1.5 text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-105 transform"
+                aria-label="GitHub Profile"
               >
-                <FaGithub />
+                <FaGithub className="text-lg" />
+                <span className="text-xs">GitHub</span>
               </a>
               <a 
                 href="https://linkedin.com/in/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-110 transform"
-                aria-label="LinkedIn"
+                className="flex items-center gap-1.5 text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-105 transform"
+                aria-label="LinkedIn Profile"
               >
-                <FaLinkedin />
+                <FaLinkedin className="text-lg" />
+                <span className="text-xs">LinkedIn</span>
               </a>
               <a 
                 href="mailto:najibulazammahi@gmail.com"
-                className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-110 transform"
-                aria-label="Email"
+                className="flex items-center gap-1.5 text-gray-500 hover:text-cyan-400 transition-colors duration-300 hover:scale-105 transform"
+                aria-label="Email Contact"
               >
-                <FaEnvelope />
+                <FaEnvelope className="text-lg" />
+                <span className="text-xs">Email</span>
               </a>
             </div>
 

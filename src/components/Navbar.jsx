@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
-import logo from '../assets/dev-logo-najib.png';
+import logo from '../assets/dev-logo.svg';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
-  { id: 'extracurriculars', label: 'Extracurriculars' },
+  { id: 'extracurriculars', label: 'Activities' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -53,17 +53,21 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/70 dark:bg-black/60 backdrop-blur-xl border-b border-cyan-500/20 shadow-lg shadow-cyan-500/5 transition-all duration-300">
+    <header className="fixed top-0 w-full z-50 bg-white/30 dark:bg-black/30 backdrop-blur-2xl border-b border-cyan-500/30 shadow-lg shadow-cyan-500/10 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-6 sm:px-12 h-20 font-mono text-black dark:text-white">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <div className="group flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:scale-105 transition-transform duration-300" onClick={() => scrollTo('home')}>
+          <button 
+            onClick={() => scrollTo('home')}
+            className="group flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:scale-105 transition-transform duration-300 bg-transparent border-0 outline-none"
+            aria-label="Go to home section"
+          >
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg blur-sm opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
               <img src={logo} alt="Najib Logo" className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-lg" />
             </div>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-xl sm:text-2xl">Najib</span>
-          </div>
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
@@ -94,32 +98,32 @@ export default function Navbar() {
             </ul>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-3 text-xl">
+            <div className="flex items-center gap-2">
               <a 
                 href="https://github.com/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                aria-label="GitHub" 
-                className="relative text-cyan-500 hover:text-cyan-400 transition-all duration-300 group p-2"
+                className="relative flex items-center gap-1.5 text-cyan-500 hover:text-cyan-400 transition-all duration-300 group px-2 py-1 rounded-lg hover:bg-cyan-500/10"
+                aria-label="GitHub Profile"
               >
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
-                <FaGithub className="relative group-hover:scale-110 transition-transform duration-300" />
+                <FaGithub className="text-lg" />
+                <span className="text-xs font-medium hidden lg:inline">GitHub</span>
               </a>
               <a 
                 href="https://linkedin.com/in/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                aria-label="LinkedIn" 
-                className="relative text-cyan-500 hover:text-cyan-400 transition-all duration-300 group p-2"
+                className="relative flex items-center gap-1.5 text-cyan-500 hover:text-cyan-400 transition-all duration-300 group px-2 py-1 rounded-lg hover:bg-cyan-500/10"
+                aria-label="LinkedIn Profile"
               >
-                <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
-                <FaLinkedin className="relative group-hover:scale-110 transition-transform duration-300" />
+                <FaLinkedin className="text-lg" />
+                <span className="text-xs font-medium hidden lg:inline">LinkedIn</span>
               </a>
             </div>
 
             {/* Resume Button */}
             <a
-              href="/Md_Najib_Ul_Azam_Mahi_CV.pdf"
+              href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="relative overflow-hidden group flex items-center gap-2 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-5 py-2.5 rounded-lg border border-purple-400/30 hover:border-purple-400/60 hover:scale-105 shadow-md hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300"
@@ -165,31 +169,31 @@ export default function Navbar() {
             </li>
           ))}
 
-          <div className="mt-6 flex justify-center space-x-8 text-3xl">
+          <div className="mt-6 flex justify-center gap-6">
             <a 
               href="https://github.com/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              aria-label="GitHub" 
-              className="relative text-cyan-400 hover:text-cyan-300 transition-all duration-300 group"
+              className="flex flex-col items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-all duration-300"
+              aria-label="GitHub Profile"
             >
-              <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
-              <FaGithub className="relative group-hover:scale-110 transition-transform duration-300" />
+              <FaGithub className="text-2xl" />
+              <span className="text-xs font-medium">GitHub</span>
             </a>
             <a 
               href="https://linkedin.com/in/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              aria-label="LinkedIn" 
-              className="relative text-cyan-400 hover:text-cyan-300 transition-all duration-300 group"
+              className="flex flex-col items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-all duration-300"
+              aria-label="LinkedIn Profile"
             >
-              <div className="absolute inset-0 bg-cyan-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
-              <FaLinkedin className="relative group-hover:scale-110 transition-transform duration-300" />
+              <FaLinkedin className="text-2xl" />
+              <span className="text-xs font-medium">LinkedIn</span>
             </a>
           </div>
 
           <a
-            href="/Md_Najib_Ul_Azam_Mahi_CV.pdf"
+            href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="relative overflow-hidden group mt-4 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-4 py-2 rounded-lg border border-purple-400/30 hover:border-purple-400/60 shadow-md hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 text-center flex items-center justify-center gap-2"

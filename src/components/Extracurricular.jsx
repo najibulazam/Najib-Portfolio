@@ -21,7 +21,7 @@ export default function Extracurriculars() {
   return (
     <section
       id="extracurriculars"
-      className="px-6 py-8 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
+      className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Extracurricular section"
     >
       <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Leadership & Volunteering</h2>
