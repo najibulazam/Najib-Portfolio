@@ -93,11 +93,11 @@ export default function About() {
                 {skills.map(({ name, icon }) => (
                   <li
                     key={name}
-                    className="flex items-center gap-1.5 sm:gap-2.5 text-[10px] sm:text-sm text-gray-700 dark:text-gray-300 hover:text-cyan-400 dark:hover:text-cyan-400 hover:translate-x-1 transition-all duration-200"
+                    className="flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 text-[10px] sm:text-sm text-gray-700 dark:text-gray-300 hover:text-cyan-400 dark:hover:text-cyan-400 hover:translate-x-1 transition-all duration-200"
                     title={name}
                   >
-                    <span className="text-sm sm:text-lg">{icon}</span>
-                    <span className="truncate">{name}</span>
+                    <span className="text-lg sm:text-lg">{icon}</span>
+                    <span className="hidden sm:inline truncate">{name}</span>
                   </li>
                 ))}
               </ul>
