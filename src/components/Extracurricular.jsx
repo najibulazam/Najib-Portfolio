@@ -24,23 +24,23 @@ export default function Extracurriculars() {
       className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
       aria-label="Extracurricular section"
     >
-      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-400 text-center">Leadership & Volunteering</h2>
+      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-500 text-center">Leadership & Volunteering</h2>
 
       <div className="space-y-4 sm:space-y-6">
         {extracurricularData.map((item, idx) => (
           <article
             key={idx}
-            className="relative overflow-hidden bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-lg hover:shadow-cyan-500/50 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 group"
+            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300"
           >
             <p className="text-sm text-gray-500 dark:text-gray-400">{item.time}</p>
             <h3 className="text-base sm:text-lg font-semibold mt-1">
               {item.role} - <span className={`${item.orgColor}`}>{item.org}</span>
             </h3>
-            <div className="relative z-10 flex gap-2 mt-3 flex-wrap">
+            <div className="flex gap-2 mt-3 flex-wrap">
               {item.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-cyan-600 text-white text-xs font-semibold rounded px-2 py-1"
+                  className="bg-cyan-500 text-white text-xs font-semibold rounded px-2 py-1"
                 >
                   {tag}
                 </span>

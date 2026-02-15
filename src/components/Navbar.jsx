@@ -53,20 +53,17 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/30 dark:bg-black/30 backdrop-blur-2xl border-b border-cyan-500/30 shadow-lg shadow-cyan-500/10 transition-all duration-300">
+    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-6 sm:px-12 h-20 font-mono text-black dark:text-white">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <button 
             onClick={() => scrollTo('home')}
-            className="group flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:scale-105 transition-transform duration-300 bg-transparent border-0 outline-none"
+            className="flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:opacity-80 hover:scale-105 transition-all duration-300 bg-transparent border-0 outline-none"
             aria-label="Go to home section"
           >
-            <div className="relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg blur-sm opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
-              <img src={logo} alt="Najib Logo" className="relative h-10 w-10 sm:h-12 sm:w-12 rounded-lg" />
-            </div>
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-xl sm:text-2xl">Najib</span>
+            <img src={logo} alt="Najib Logo" className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg" />
+            <span className="text-cyan-500 text-xl sm:text-2xl">Najib</span>
           </button>
 
           {/* Desktop Menu */}
@@ -76,34 +73,23 @@ export default function Navbar() {
                 <li
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className={`relative cursor-pointer py-2 px-3 rounded-lg group transition-all duration-300 ${
+                  className={`cursor-pointer py-2 px-3 rounded-lg transition-all duration-300 ${
                     active === id 
-                      ? 'text-cyan-400' 
-                      : 'hover:text-cyan-400'
+                      ? 'text-cyan-500 bg-cyan-500/5' 
+                      : 'hover:text-cyan-500 hover:bg-cyan-500/5'
                   }`}
                 >
-                  <span className="relative z-10 text-sm font-medium">{label}</span>
-                  <div className={`absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg transition-all duration-300 ${
-                    active === id 
-                      ? 'opacity-100 scale-100' 
-                      : 'opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100'
-                  }`}></div>
-                  <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300 ${
-                    active === id 
-                      ? 'w-full' 
-                      : 'w-0 group-hover:w-full'
-                  }`}></div>
+                  <span className="text-sm font-medium">{label}</span>
                 </li>
               ))}
             </ul>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-2">
               <a 
                 href="https://github.com/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="relative flex items-center gap-1.5 text-cyan-500 hover:text-cyan-400 transition-all duration-300 group px-2 py-1 rounded-lg hover:bg-cyan-500/10"
+                className="flex items-center gap-1.5 text-cyan-500 hover:text-cyan-600 transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-cyan-500/5"
                 aria-label="GitHub Profile"
               >
                 <FaGithub className="text-lg" />
@@ -113,7 +99,7 @@ export default function Navbar() {
                 href="https://linkedin.com/in/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="relative flex items-center gap-1.5 text-cyan-500 hover:text-cyan-400 transition-all duration-300 group px-2 py-1 rounded-lg hover:bg-cyan-500/10"
+                className="flex items-center gap-1.5 text-cyan-500 hover:text-cyan-600 transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-cyan-500/5"
                 aria-label="LinkedIn Profile"
               >
                 <FaLinkedin className="text-lg" />
@@ -126,18 +112,17 @@ export default function Navbar() {
               href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden group flex items-center gap-2 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-5 py-2.5 rounded-lg border border-purple-400/30 hover:border-purple-400/60 hover:scale-105 shadow-md hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300"
+              className="flex items-center gap-2 text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 px-5 py-2.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative z-10">Resume</span>
-              <FaDownload className="relative z-10 text-sm group-hover:translate-y-0.5 transition-transform duration-300" />
+              <span>Resume</span>
+              <FaDownload className="text-sm" />
             </a>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-3xl text-cyan-400 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2 hover:bg-cyan-500/10 transition-all duration-300"
+            className="md:hidden text-3xl text-cyan-500 hover:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2 transition-colors duration-300"
           >
             {mobileMenuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
           </button>
@@ -146,26 +131,16 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <ul className="md:hidden bg-gradient-to-b from-black/95 to-gray-900/95 backdrop-blur-xl flex flex-col space-y-4 py-6 px-8 font-mono text-white text-lg absolute w-full top-20 left-0 z-50 animate-slideDown border-b border-cyan-500/30 shadow-xl shadow-cyan-500/10">
+        <ul className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 flex flex-col space-y-4 py-6 px-8 font-mono text-black dark:text-white text-lg absolute w-full top-20 left-0 z-50">
           {NAV_ITEMS.map(({ id, label }) => (
             <li
               key={id}
               onClick={() => scrollTo(id)}
-              className={`relative cursor-pointer py-2 px-3 rounded-lg group transition-all duration-300 ${
-                active === id ? 'text-cyan-400' : 'hover:text-cyan-400'
+              className={`cursor-pointer py-2 px-3 rounded-lg transition-all duration-300 ${
+                active === id ? 'text-cyan-500 bg-cyan-500/5' : 'hover:text-cyan-500 hover:bg-cyan-500/5'
               }`}
             >
-              <span className="relative z-10">{label}</span>
-              <div className={`absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg transition-all duration-300 ${
-                active === id 
-                  ? 'opacity-100 scale-100' 
-                  : 'opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100'
-              }`}></div>
-              <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300 ${
-                active === id 
-                  ? 'w-full' 
-                  : 'w-0 group-hover:w-full'
-              }`}></div>
+              <span>{label}</span>
             </li>
           ))}
 
@@ -174,7 +149,7 @@ export default function Navbar() {
               href="https://github.com/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-all duration-300"
+              className="flex flex-col items-center gap-1 text-cyan-500 hover:text-cyan-600 transition-colors duration-300"
               aria-label="GitHub Profile"
             >
               <FaGithub className="text-2xl" />
@@ -184,7 +159,7 @@ export default function Navbar() {
               href="https://linkedin.com/in/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-cyan-400 hover:text-cyan-300 transition-all duration-300"
+              className="flex flex-col items-center gap-1 text-cyan-500 hover:text-cyan-600 transition-colors duration-300"
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin className="text-2xl" />
@@ -196,26 +171,13 @@ export default function Navbar() {
             href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative overflow-hidden group mt-4 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-4 py-2 rounded-lg border border-purple-400/30 hover:border-purple-400/60 shadow-md hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-300 text-center flex items-center justify-center gap-2"
+            className="mt-4 text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative z-10">Resume</span>
-            <FaDownload className="relative z-10 text-base" />
+            <span>Resume</span>
+            <FaDownload className="text-base" />
           </a>
         </ul>
       )}
-
-      {/* Animation */}
-      <style>{`
-        @keyframes slideDown {
-          0% { transform: scaleY(0); opacity: 0; }
-          100% { transform: scaleY(1); opacity: 1; }
-        }
-        .animate-slideDown {
-          animation: slideDown 0.3s ease forwards;
-          transform-origin: top;
-        }
-      `}</style>
     </header>
   );
 }
