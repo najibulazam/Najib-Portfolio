@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/dev-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Theme colour for mobile browser chrome -->
+    <meta name="theme-color" content="#190230" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#eef0f7" media="(prefers-color-scheme: light)" />
+
+    <!-- Preconnect to third-party origins used by YouTube iframes -->
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="preconnect" href="https://i.ytimg.com" />
     
     <!-- Primary Meta Tags -->
     <title>Md Najib Ul Azam Mahi - Full-Stack Developer | React, Django, FastAPI</title>
@@ -34,6 +42,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <style>
+        body { font-family: monospace; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #190230; color: #e2e8f0; text-align: center; padding: 2rem; box-sizing: border-box; }
+        a { color: #22d3ee; }
+      </style>
+      <div>
+        <h1 style="font-size: 1.5rem; margin-bottom: 1rem;">Md Najib Ul Azam Mahi &mdash; Full-Stack Developer</h1>
+        <p style="margin-bottom: 0.75rem;">This portfolio requires JavaScript. Please enable it in your browser to view the full site.</p>
+        <p>Contact me directly: <a href="mailto:azam.mdnajibul@gmail.com">azam.mdnajibul@gmail.com</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

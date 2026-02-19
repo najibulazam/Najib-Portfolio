@@ -1,4 +1,8 @@
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import SectionHeading from './SectionHeading';
+import Section from './Section';
+import ModernCard from './ModernCard';
+import PrimaryButton from './PrimaryButton';
 import shwapnobunonImage from '../assets/shwapnobunon.webp';
 
 const experience = {
@@ -19,54 +23,53 @@ const experience = {
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
-      aria-label="Experience Section"
-    >
-      <h2 className="text-2xl sm:text-4xl font-bold mb-8 text-cyan-500 text-center">Experience</h2>
+    <Section id="experience" ariaLabel="Experience Section">
+      <SectionHeading>Experience</SectionHeading>
 
-      <article 
-        className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-sm hover:shadow-md hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
-        onClick={() => window.open(experience.liveUrl, '_blank')}
+      <ModernCard
+        className="card-accent group overflow-hidden"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr]">
+        <div className="flex flex-col md:flex-row">
           {/* Image Section */}
-          <div className="relative bg-gray-200 dark:bg-gray-700 overflow-hidden w-full lg:w-[400px] h-full">
+          <div className="relative bg-img-slot overflow-hidden flex flex-col w-full h-[260px] md:h-auto md:w-[280px] lg:w-[360px] md:shrink-0">
             <img
               src={experience.image}
               alt={`${experience.title} project screenshot`}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="flex-1 min-h-0 w-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
           </div>
 
           {/* Text Content */}
-          <div className="p-5 lg:p-6 flex flex-col justify-center">
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">{experience.title}</h3>
-            <p className="text-cyan-500 text-sm mb-2 font-medium">{experience.techStack}</p>
-            <div className="flex justify-between items-center mb-4">
-              <p className="text-gray-500 dark:text-gray-400 text-xs italic">{experience.role}</p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs font-medium">{experience.duration}</p>
+          <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+              <span className="text-gradient">{experience.title}</span>
+            </h3>
+            <p className="text-accent text-sm mb-3 font-medium tracking-wide">{experience.techStack}</p>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 mb-4">
+              <p className="text-gray-500 text-xs uppercase tracking-[0.2em]">{experience.role}</p>
+              <p className="text-gray-500 text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em]">{experience.duration}</p>
             </div>
 
-            <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 list-disc list-inside mb-4">
+            <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 list-disc list-inside mb-6">
               {experience.keyPoints.map((point, idx) => (
                 <li key={idx} className="leading-relaxed">{point}</li>
               ))}
             </ul>
-            <a
+            <PrimaryButton
               href={experience.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded transition-all duration-300 hover:scale-105 self-start"
+              icon={<FaExternalLinkAlt className="transition-transform duration-300 group-hover:translate-x-0.5" />}
               onClick={(e) => e.stopPropagation()}
+              aria-label={`Visit live site: ${experience.title}`}
+              className="w-full sm:w-auto"
             >
-              <FaExternalLinkAlt className="group-hover:translate-x-0.5 transition-transform duration-300" />
-              <span>Visit Live Site</span>
-            </a>
+              Visit Live Site
+            </PrimaryButton>
           </div>
         </div>
-      </article>
-    </section>
+      </ModernCard>
+    </Section>
   );
 }

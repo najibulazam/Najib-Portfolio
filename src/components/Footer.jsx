@@ -1,85 +1,103 @@
-import React from 'react';
-import { FaHeart, FaCode, FaCoffee, FaArrowUp, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaHeart, FaCode, FaCoffee, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="py-8 text-center bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Main Content */}
-        <div className="flex flex-col items-center gap-4">
-          {/* Made with Love Section */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-            <span>Made with</span>
-            <FaHeart className="text-red-500 animate-pulse" />
-            <span>and</span>
-            <FaCoffee className="text-amber-500" />
-            <span>using</span>
-            <FaCode className="text-cyan-500" />
-          </div>
+    <footer className="border-t border-ui bg-footer-surface backdrop-blur font-mono text-black dark:text-white">
+      <div className="container-base py-8 flex flex-wrap justify-between items-start gap-8">
 
-          {/* Divider */}
-          <div className="w-48 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent"></div>
-
-          {/* Copyright */}
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            <span>© {new Date().getFullYear()}</span>{' '}
-            <span className="text-cyan-500 font-semibold">
-              Md Najib Ul Azam Mahi
-            </span>
-            {' '}<span>• All rights reserved.</span>
-          </p>
-
-          {/* Quick Links & Social */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://github.com/najibulazam" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-500 hover:scale-110 transition-all duration-300"
-                aria-label="GitHub Profile"
-              >
-                <FaGithub className="text-lg" />
-                <span className="text-xs">GitHub</span>
-              </a>
-              <a 
-                href="https://linkedin.com/in/najibulazam" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-500 hover:scale-110 transition-all duration-300"
-                aria-label="LinkedIn Profile"
-              >
-                <FaLinkedin className="text-lg" />
-                <span className="text-xs">LinkedIn</span>
-              </a>
-              <a 
-                href="mailto:najibulazammahi@gmail.com"
-                className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-500 hover:scale-110 transition-all duration-300"
-                aria-label="Email Contact"
-              >
-                <FaEnvelope className="text-lg" />
-                <span className="text-xs">Email</span>
-              </a>
+        {/* ── Left block: identity + social ── */}
+        <div className="flex flex-col items-start gap-5 w-full sm:w-auto">
+          {/* Branding */}
+          <div className="flex flex-col gap-1">
+            <span className="text-lg font-bold text-accent">Md Najib Ul Azam Mahi</span>
+            <div className="flex items-center gap-1.5 text-xs text-gray-500">
+              <span>Made with</span>
+              <FaHeart className="text-red-500 animate-pulse" />
+              <FaCoffee className="text-amber-500" />
+              <FaCode className="text-accent" />
             </div>
-
-            {/* Divider */}
-            <div className="w-px h-6 bg-gray-300 dark:bg-gray-700"></div>
-
-            {/* Back to Top */}
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-500 hover:scale-105 transition-all duration-300"
-              aria-label="Scroll to top"
-            >
-              <span>Back to Top</span>
-              <FaArrowUp className="text-sm hover:-translate-y-0.5 transition-transform duration-300" />
-            </button>
           </div>
+
+          {/* Social icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/najibulazam"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-gray-500 hover:text-accent hover:scale-110 transition-all duration-300"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub className="text-xl" />
+              <span className="text-xs">GitHub</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/najibulazam"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-gray-500 hover:text-accent hover:scale-110 transition-all duration-300"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin className="text-xl" />
+              <span className="text-xs">LinkedIn</span>
+            </a>
+            <a
+              href="mailto:azam.mdnajibul@gmail.com"
+              className="flex items-center gap-1.5 text-gray-500 hover:text-accent hover:scale-110 transition-all duration-300"
+              aria-label="Email Contact"
+            >
+              <FaEnvelope className="text-xl" />
+              <span className="text-xs">Email</span>
+            </a>
+          </div>
+        </div>
+
+        {/* ── Right block: contact links ── */}
+        <aside className="flex flex-col items-start gap-3 w-full sm:w-auto">
+          <ul className="flex flex-col gap-3">
+            <li>
+              <a
+                href="mailto:azam.mdnajibul@gmail.com"
+                className="flex items-center gap-3 text-sm text-gray-600 hover:text-accent transition-colors duration-300"
+              >
+                <FaEnvelope className="text-lg flex-shrink-0" />
+                <span>azam.mdnajibul@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/najibulazam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-gray-600 hover:text-accent transition-colors duration-300"
+              >
+                <FaGithub className="text-lg flex-shrink-0" />
+                <span>@najibulazam</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/najibulazam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-gray-600 hover:text-accent transition-colors duration-300"
+              >
+                <FaLinkedin className="text-lg flex-shrink-0" />
+                <span>linkedin.com/in/najibulazam</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+
+      {/* ── Bottom bar: copyright ── */}
+      <div className="border-t border-hairline">
+        <div className="container-base py-3 flex justify-center">
+          <p className="text-xs text-gray-500">
+            © {new Date().getFullYear()}{' '}
+            <span className="text-accent font-semibold">Md Najib Ul Azam Mahi</span>
+            {' '}• All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

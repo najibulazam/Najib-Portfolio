@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
 import logo from '../assets/dev-logo.svg';
+import PrimaryButton from './PrimaryButton';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
-  { id: 'extracurriculars', label: 'Activities' },
+  { id: 'leadership', label: 'Leadership' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -45,7 +45,7 @@ export default function Navbar() {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      const navbarHeight = 80;
+      const navbarHeight = 64;
       const offset = el.offsetTop - navbarHeight;
       window.scrollTo({ top: offset, behavior: 'smooth' });
       setMobileMenuOpen(false);
@@ -53,33 +53,34 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300">
-      <nav className="max-w-7xl mx-auto px-6 sm:px-12 h-20 font-mono text-black dark:text-white">
-        <div className="flex items-center justify-between h-full">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300">
+      <nav className="container-base !max-w-7xl pt-4">
+        <div className="nav-shell h-16 px-4 sm:px-6 flex items-center justify-between font-mono text-black dark:text-white">
           {/* Logo */}
           <button 
             onClick={() => scrollTo('home')}
             className="flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:opacity-80 hover:scale-105 transition-all duration-300 bg-transparent border-0 outline-none"
             aria-label="Go to home section"
           >
-            <img src={logo} alt="Najib Logo" className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg" />
-            <span className="text-cyan-500 text-xl sm:text-2xl">Najib</span>
+            <img src={logo} alt="Najib Logo" className="h-8 w-8 sm:h-8 sm:w-8 rounded-lg" />
+            <span className="text-accent text-xl sm:text-2xl">Najib</span>
           </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-2">
+            <ul className="flex items-center gap-1">
               {NAV_ITEMS.map(({ id, label }) => (
-                <li
-                  key={id}
-                  onClick={() => scrollTo(id)}
-                  className={`cursor-pointer py-2 px-3 rounded-lg transition-all duration-300 ${
-                    active === id 
-                      ? 'text-cyan-500 bg-cyan-500/5' 
-                      : 'hover:text-cyan-500 hover:bg-cyan-500/5'
-                  }`}
-                >
-                  <span className="text-sm font-medium">{label}</span>
+                <li key={id}>
+                  <button
+                    onClick={() => scrollTo(id)}
+                    className={`nav-link py-2 px-3 rounded-lg text-sm font-medium transition-colors duration-300 bg-transparent border-0 ${
+                      active === id
+                        ? 'text-accent nav-active'
+                        : 'text-gray-600 hover:text-accent'
+                    }`}
+                  >
+                    <span>{label}</span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -89,7 +90,7 @@ export default function Navbar() {
                 href="https://github.com/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-1.5 text-cyan-500 hover:text-cyan-600 transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-cyan-500/5"
+                className="flex items-center gap-1.5 text-accent hover:text-accent-hover transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-accent-tint"
                 aria-label="GitHub Profile"
               >
                 <FaGithub className="text-lg" />
@@ -99,7 +100,7 @@ export default function Navbar() {
                 href="https://linkedin.com/in/najibulazam" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-1.5 text-cyan-500 hover:text-cyan-600 transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-cyan-500/5"
+                className="flex items-center gap-1.5 text-accent hover:text-accent-hover transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-accent-tint"
                 aria-label="LinkedIn Profile"
               >
                 <FaLinkedin className="text-lg" />
@@ -108,21 +109,24 @@ export default function Navbar() {
             </div>
 
             {/* Resume Button */}
-            <a
+            <PrimaryButton
               href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 px-5 py-2.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+              icon={<FaDownload className="text-sm" />}
+              aria-label="Download Resume"
             >
-              <span>Resume</span>
-              <FaDownload className="text-sm" />
-            </a>
+              Resume
+            </PrimaryButton>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-3xl text-cyan-500 hover:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-2 transition-colors duration-300"
+            className="md:hidden text-3xl text-accent hover:text-accent-hover focus:outline-none focus:ring-2 focus:ring-accent rounded-lg p-2 transition-colors duration-300"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
           </button>
@@ -131,16 +135,17 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <ul className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 flex flex-col space-y-4 py-6 px-8 font-mono text-black dark:text-white text-lg absolute w-full top-20 left-0 z-50">
+        <ul id="mobile-menu" className="md:hidden nav-shell flex flex-col space-y-2 py-5 px-6 font-mono text-black dark:text-white text-base absolute w-[calc(100%-3rem)] left-6 top-[5rem] z-50">
           {NAV_ITEMS.map(({ id, label }) => (
-            <li
-              key={id}
-              onClick={() => scrollTo(id)}
-              className={`cursor-pointer py-2 px-3 rounded-lg transition-all duration-300 ${
-                active === id ? 'text-cyan-500 bg-cyan-500/5' : 'hover:text-cyan-500 hover:bg-cyan-500/5'
-              }`}
-            >
-              <span>{label}</span>
+            <li key={id}>
+              <button
+                onClick={() => scrollTo(id)}
+                className={`w-full text-left py-2 px-3 rounded-lg transition-all duration-300 bg-transparent border-0 ${
+                  active === id ? 'text-accent bg-accent-tint' : 'hover:text-accent hover:bg-accent-tint'
+                }`}
+              >
+                <span>{label}</span>
+              </button>
             </li>
           ))}
 
@@ -149,7 +154,7 @@ export default function Navbar() {
               href="https://github.com/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-cyan-500 hover:text-cyan-600 transition-colors duration-300"
+              className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
               aria-label="GitHub Profile"
             >
               <FaGithub className="text-2xl" />
@@ -159,7 +164,7 @@ export default function Navbar() {
               href="https://linkedin.com/in/najibulazam" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-cyan-500 hover:text-cyan-600 transition-colors duration-300"
+              className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin className="text-2xl" />
@@ -167,15 +172,16 @@ export default function Navbar() {
             </a>
           </div>
 
-          <a
+          <PrimaryButton
             href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-2"
+            icon={<FaDownload className="text-base" />}
+            aria-label="Download Resume"
+            className="mt-4 w-full justify-center"
           >
-            <span>Resume</span>
-            <FaDownload className="text-base" />
-          </a>
+            Resume
+          </PrimaryButton>
         </ul>
       )}
     </header>

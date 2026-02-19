@@ -1,4 +1,9 @@
 import { FaGithub } from 'react-icons/fa';
+import SectionHeading from './SectionHeading';
+import Section from './Section';
+import ModernCard from './ModernCard';
+import PrimaryButton from './PrimaryButton';
+import YouTubeFacade from './YouTubeFacade';
 
 const projects = [
   {
@@ -47,71 +52,63 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
-      aria-label="Projects Section"
-    >
-      <h2 className="text-2xl sm:text-4xl font-bold mb-10 text-cyan-500 text-center">Projects</h2>
+    <Section id="projects" ariaLabel="Projects Section">
+      <SectionHeading>Projects</SectionHeading>
 
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         {projects.map(({ id, title, techStack, role, keyPoints, youtubeId, github }) => (
-          <article
+          <ModernCard
             key={id}
-            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-sm hover:shadow-md hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+            className="card-accent flex flex-col overflow-hidden"
           >
-            <div className="relative z-10 w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${youtubeId}`}
-                title={`${title} Demo Video`}
-                frameBorder="0"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
+            {/* 16:9 media container — aspect-ratio is native CSS,
+                no JS, no layout shift, no padding-bottom hack needed. */}
+            <div className="w-full aspect-video overflow-hidden rounded-t-2xl">
+              <YouTubeFacade youtubeId={youtubeId} title={`${title} Demo Video`} />
             </div>
 
-            <div className="p-5 flex flex-col flex-grow">
-              <h3 className="text-lg font-bold mb-2">{title}</h3>
-              <p className="text-cyan-500 text-sm mb-2 font-medium">{techStack}</p>
-              <p className="text-gray-500 dark:text-gray-400 text-xs mb-3 italic">{role}</p>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                <span className="text-gradient">{title}</span>
+              </h3>
+              <p className="text-accent text-sm mb-2 font-medium tracking-wide">{techStack}</p>
+              <p className="text-gray-500 text-xs mb-4 uppercase tracking-[0.2em]">{role}</p>
 
-              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 mb-4 list-disc list-inside">
+              <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 mb-6 list-disc list-inside">
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="leading-relaxed">{point}</li>
                 ))}
               </ul>
 
               <div className="mt-auto">
-                <a
+                <PrimaryButton
                   href={github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`GitHub repository for ${title}`}
-                  className="inline-flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  icon={<FaGithub className="text-lg" />}
+                  className="w-full sm:w-auto"
                 >
-                  <FaGithub className="text-lg group-hover:rotate-12 transition-transform duration-300" />
-                  <span>View Repository</span>
-                </a>
+                  View Repository
+                </PrimaryButton>
               </div>
             </div>
-          </article>
+          </ModernCard>
         ))}
       </div>
 
       <div className="mt-12 text-center">
-        <a
+        <PrimaryButton
           href="https://github.com/najibulazam?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
           aria-label="Visit GitHub repositories for more projects"
+          icon={<FaGithub className="text-xl" />}
+          className="w-full sm:w-auto"
         >
-          <FaGithub className="text-2xl" />
-          <span>Visit GitHub for More Projects</span>
-        </a>
+          Visit GitHub for More Projects
+        </PrimaryButton>
       </div>
-    </section>
+    </Section>
   );
 }

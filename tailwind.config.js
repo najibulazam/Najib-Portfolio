@@ -7,16 +7,22 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        /* Semantic accent tokens — values come from CSS vars in index.css.
+           The accent colour shifts between cyan-500 (light) and cyan-400 (dark)
+           automatically via the :root / .dark custom property switch.
+           Tailwind v4 uses color-mix() for opacity modifiers, so
+           bg-accent/10, border-accent/20, etc. all work correctly. */
+        'accent':         'var(--c-accent)',
+        'accent-hover':   'var(--c-accent-hover)',
+        'accent-2':       'var(--c-accent-2)',
+      },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'slide-up': 'slideUp 0.5s ease-out',
+        'hero-reveal': 'heroReveal 2.5s ease forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -24,6 +30,10 @@ export default {
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        heroReveal: {
+          '0%':   { backgroundSize: '220%', backgroundPosition: '60% 50%' },
+          '100%': { backgroundSize: '100%', backgroundPosition: '50% 50%' },
         },
       },
     },

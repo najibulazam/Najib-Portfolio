@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Education from './components/Education';
-import Extracurriculars from './components/Extracurricular';
+import Leadership from './components/Extracurricular';
 import Footer from './components/Footer';
+import Layout from './components/Layout';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   // Set dark mode by default
@@ -16,16 +17,16 @@ export default function App() {
   }, []);
 
   return (
-    <main className="bg-white dark:bg-black text-black dark:text-white font-mono min-h-screen transition-colors">
+    <Layout>
       <Navbar />
-        <section id="home"><Home /></section>
-        <section id="about"><About /></section>
-        <section id="experience"><Experience /></section>
-        <section id="projects"><Projects /></section>
-        <section id="education"><Education /></section>
-        <section id="extracurriculars"><Extracurriculars /></section>
-        <section id="contact"><Contact /></section>
+      <Home />
+      <Experience />
+      <Projects />
+      <Education />
+      <Leadership />
+      <Contact />
       <Footer />
-    </main>
+      <BackToTop />
+    </Layout>
   );
 }

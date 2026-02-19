@@ -1,6 +1,10 @@
-import React from 'react';
-import ostadLogo from '../assets/ostad_logo.png';
+import SectionHeading from './SectionHeading';
+import Section from './Section';
+import ModernCard from './ModernCard';
+import PrimaryButton from './PrimaryButton';
+import ostadLogo from '../assets/ostad_logo.webp';
 import harvardLogo from '../assets/harvard_logo.webp';
+import hstuLogo from '../assets/hstu.png';
 
 const educationData = [
   {
@@ -8,7 +12,7 @@ const educationData = [
     degree: 'B.Sc. in Electronics and Communication Engineering',
     duration: 'January 2023 – Present',
     tags: ['Communication Systems', 'Signal Processing', 'Computer Networks', 'Microprocessors & Embedded Systems', 'AI & Machine Learning', 'Web Engineering', 'VLSI & Semiconductor Devices', 'Cyber Security & Cryptography'],
-    logo: '/education/hstu.png',
+    logo: hstuLogo,
   },
 ];
 
@@ -33,68 +37,73 @@ const certifications = [
 
 export default function Education() {
   return (
-    <section
-      id="education"
-      className="px-6 py-12 max-w-6xl mx-auto font-mono text-black dark:text-white bg-white dark:bg-black transition-colors"
-      aria-label="Education section"
-    >
-      <h2 className="text-2xl sm:text-4xl font-bold mb-6 text-cyan-500 text-center">Education</h2>
+    <Section id="education" ariaLabel="Education section">
+      <SectionHeading>Education</SectionHeading>
 
       <div className="space-y-6 sm:space-y-8 mb-12">
         {educationData.map((edu, idx) => (
-          <article
+          <ModernCard
             key={idx}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300"
+            className="card-accent flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-5 sm:p-6"
           >
             <img
               src={edu.logo}
               alt={edu.institute}
               className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto sm:mx-0 rounded-lg"
+              width="80"
+              height="80"
             />
             <div className="text-center sm:text-left w-full">
-              <h3 className="text-lg sm:text-xl font-semibold">{edu.institute}</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+                <span className="text-gradient">{edu.institute}</span>
+              </h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{edu.degree}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{edu.duration}</p>
+              <p className="text-sm text-gray-500 uppercase tracking-[0.2em]">{edu.duration}</p>
               <div className="flex gap-2 mt-3 flex-wrap justify-center sm:justify-start">{edu.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="bg-cyan-500 text-white text-xs font-semibold rounded px-2 py-1"
+                    className="tag-accent text-xs font-semibold rounded-full px-3 py-1"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
             </div>
-          </article>
+          </ModernCard>
         ))}
       </div>
 
-      <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-cyan-500 text-center">Awards & Certifications</h3>
+      <div className="flex flex-col items-center mb-8">
+        <h3 className="text-2xl sm:text-3xl font-semibold text-accent">Awards &amp; Certifications</h3>
+        <div className="mt-3 w-12 h-0.5 bg-gradient-to-r from-accent to-accent-2 rounded-full"></div>
+      </div>
       
       <div className="grid sm:grid-cols-2 gap-4">
         {certifications.map((cert, idx) => (
-          <article
+          <ModernCard
             key={idx}
-            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group"
+            className="card-accent p-5 sm:p-6 group"
           >
             <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
             <div className="flex items-center gap-2 mb-1">
-              <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" />
-              <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+              <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" width="20" height="20" />
+              <p className="text-sm text-gray-600">{cert.issuer}</p>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1 mb-3">{cert.year}</p>
+            <p className="text-xs text-gray-500 mt-1 mb-3">{cert.year}</p>
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{cert.description}</p>
-            <a
+            <PrimaryButton
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold py-2 px-4 rounded transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              size="sm"
+              aria-label={`View certificate: ${cert.title}`}
+              className="w-full sm:w-auto"
             >
               View Certificate
-            </a>
-          </article>
+            </PrimaryButton>
+          </ModernCard>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

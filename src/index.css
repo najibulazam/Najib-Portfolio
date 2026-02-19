@@ -1,4 +1,293 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer components {
+  .layout-root {
+    @apply text-black dark:text-white font-mono min-h-screen transition-colors;
+    background-color: var(--site-bg);
+    background-image: var(--site-bg-gradient);
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+    position: relative;
+    isolation: isolate;
+    /* Contain decorative glow pseudo-elements that use negative insets
+       (::before top is -20%, ::after bottom is -20%).
+       overflow:clip clips both axes without creating a scroll container,
+       so position:fixed children (Navbar) remain unaffected. */
+    overflow: clip;
+  }
+
+  .layout-root::before,
+  .layout-root::after {
+    content: '';
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 60%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+    background: radial-gradient(closest-side, var(--site-glow-1), transparent 65%);
+  }
+
+  .layout-root::after {
+    inset: auto -10% -20% -10%;
+    height: 60%;
+    opacity: 0.45;
+    background: radial-gradient(closest-side, var(--site-glow-2), transparent 70%);
+  }
+
+  .section-shell {
+    @apply px-4 sm:px-6 py-12 sm:py-20 max-w-6xl mx-auto font-mono text-black dark:text-white;
+  }
+
+  .container-base {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .nav-shell {
+    @apply backdrop-blur-xl rounded-2xl shadow-sm;
+    background-color: var(--c-nav-bg);
+    border: 1px solid var(--c-border);
+  }
+
+  .modern-card {
+    @apply rounded-2xl shadow-sm transition-all duration-300;
+    background-color: var(--c-surface);
+    border: 1px solid var(--c-divider);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+  }
+
+  .modern-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--c-accent) 20%, transparent), color-mix(in srgb, var(--c-accent-2) 16%, transparent)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .modern-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .modern-card:hover::after {
+    opacity: 1;
+  }
+
+  /* ── Button system ──────────────────────────────────────────── */
+  .btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-weight: 600;
+    border-radius: 9999px;
+    cursor: pointer;
+    min-height: 2.75rem;  /* 44px — WCAG 2.5.5 touch target */
+    transition:
+      background-position 0.45s ease,
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+    text-decoration: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .btn-base:focus-visible {
+    outline-color: var(--btn-focus-ring);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--btn-focus-ring) 30%, transparent);
+  }
+  .btn-base:disabled,
+  .btn-base[aria-disabled="true"] {
+    background-image: none !important;
+    background-color: var(--btn-disabled-bg) !important;
+    color: var(--btn-disabled-text) !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  /* ── Gradient (solid) ── */
+  .btn-gradient {
+    /* Three-stop gradient where the third stop mirrors the first.
+       background-size: 200% means only half is visible at a time.
+       Animating background-position shifts the visible window,
+       creating a smooth cyan→purple→cyan colour-travel on hover. */
+    background-image: linear-gradient(
+      135deg,
+      var(--c-accent)   0%,
+      var(--c-accent-2) 50%,
+      var(--c-accent)   100%
+    );
+    background-size: 200% auto;
+    background-position: 0% 50%;
+    color: #ffffff;
+    border: none;
+  }
+  .btn-gradient:not(:disabled):not([aria-disabled="true"]):hover {
+    background-position: 100% 50%;
+    box-shadow: 0 8px 28px var(--btn-gradient-glow);
+    transform: translateY(-2px);
+  }
+  .btn-gradient:not(:disabled):not([aria-disabled="true"]):active {
+    transform: scale(0.97);
+    box-shadow: none;
+  }
+
+  /* ── Ghost (outline + gradient border) ── */
+  .btn-ghost-gradient {
+    /* Two-layer background:
+       – Layer 1 (top): transparent fill, clipped to padding-box (inside border)
+       – Layer 2 (bottom): gradient, clipped to border-box (paints the border area) */
+    background:
+      transparent padding-box,
+      linear-gradient(135deg, var(--c-accent), var(--c-accent-2)) border-box;
+    border: 1.5px solid transparent;
+    color: var(--c-accent);
+    position: relative;
+    overflow: hidden;      /* clips ::before to the pill shape            */
+    isolation: isolate;    /* creates stacking context so z-index:-1 on   */
+                           /* ::before stays inside the button boundaries */
+  }
+  /* Smooth hover fill via opacity-animated pseudo-element */
+  .btn-ghost-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* 14% tint — strong enough to feel interactive without obscuring text */
+    background: color-mix(in srgb, var(--c-accent) 14%, transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    /* z-index:-1 within isolation:isolate → renders below inline content
+       (paint step 2) but above the button's own transparent background */
+    z-index: -1;
+  }
+  .btn-ghost-gradient:not(:disabled):not([aria-disabled="true"]):hover::before {
+    opacity: 1;
+  }
+  .btn-ghost-gradient:not(:disabled):not([aria-disabled="true"]):hover {
+    color: var(--c-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px var(--btn-ghost-glow);
+  }
+  .btn-ghost-gradient:not(:disabled):not([aria-disabled="true"]):active {
+    transform: scale(0.97);
+    box-shadow: none;
+  }
+}
+
+:root {
+  --site-bg: #eef0f7;
+  --site-bg-gradient: radial-gradient(circle at 20% 0%, #dfe9f6 0%, #eef0f7 45%, #e7e0f4 100%);
+  --site-glow-1: rgba(88, 249, 255, 0.25);
+  --site-glow-2: rgba(223, 68, 231, 0.18);
+  --text-secondary-strong: #5f6b7a;
+  --text-secondary: #6b7687;
+  --text-secondary-light: #7a8799;
+
+  /* ── UI colour tokens ───────────────────────────────────────────────────────
+     Single source of truth for every accent, surface, border, and divider.
+     The .dark block below overrides these for dark mode.
+  ── */
+  --c-accent:          #06b6d4;   /* cyan-500  – primary accent               */
+  --c-accent-hover:    #0891b2;   /* cyan-600  – hover / pressed state        */
+  --c-accent-2:        #a855f7;   /* purple-500– secondary accent (gradients) */
+  --c-accent-tint:     rgba(6, 182, 212, 0.07);   /* fill for hover / active bg    */
+  --c-accent-border:   rgba(6, 182, 212, 0.20);   /* border on tags / badges       */
+  --c-surface:         rgba(255, 255, 255, 0.70);  /* card / panel glass surface    */
+  --c-surface-xs:      rgba(255, 255, 255, 0.50);  /* lighter surface (marquee)     */
+  --c-nav-bg:          rgba(255, 255, 255, 0.70);  /* navbar glass                  */
+  --c-footer-bg:       rgba(255, 255, 255, 0.40);  /* footer tinted surface         */
+  --c-border:          rgba(255, 255, 255, 0.20);  /* outer / nav border            */
+  --c-divider:         rgba(255, 255, 255, 0.10);  /* internal hairline / card edge */
+  --c-img-placeholder: rgba(203, 213, 225, 0.60);  /* slate-200/60 – image slot bg  */
+
+  /* ── Button glow tokens ──────────────────────────────────────
+     Used for drop-shadow on hover. Not needed for contrast-sensitive
+     text — these are purely decorative.
+  ── */
+  --btn-gradient-glow:  rgba(6, 182, 212, 0.38);   /* cyan glow for solid btn  */
+  --btn-ghost-glow:     rgba(6, 182, 212, 0.20);   /* softer glow for ghost    */
+
+  /* Focus ring */
+  --btn-focus-ring:        #0891b2;
+  --btn-focus-ring-offset: var(--site-bg);
+
+  /* Disabled  (WCAG 1.4.3 exempts disabled components) */
+  --btn-disabled-bg:   #e2e8f0;   /* slate-200 */
+  --btn-disabled-text: #64748b;   /* slate-500 */
+}
+
+.dark {
+  --site-bg: #190230;
+  --site-bg-gradient: linear-gradient(-54deg, #190230 -23%, #442288 35%, #190230 65%);
+  --site-glow-1: rgba(88, 249, 255, 0.18);
+  --site-glow-2: rgba(223, 68, 231, 0.14);
+  --text-secondary-strong: #a9b3c1;
+  --text-secondary: #b7c0cc;
+  --text-secondary-light: #c4ccd7;
+
+  /* ── UI colour tokens – dark mode ──────────────────────────────────────── */
+  --c-accent:          #22d3ee;   /* cyan-400                              */
+  --c-accent-hover:    #67e8f9;   /* cyan-300                              */
+  --c-accent-2:        #a855f7;   /* purple-500 (same as light mode)       */
+  --c-accent-tint:     rgba(34, 211, 238, 0.07);
+  --c-accent-border:   rgba(34, 211, 238, 0.20);
+  --c-surface:         rgba(17, 24, 39, 0.70);    /* gray-900/70           */
+  --c-surface-xs:      rgba(255, 255, 255, 0.04);
+  --c-nav-bg:          rgba(0, 0, 0, 0.60);
+  --c-footer-bg:       rgba(0, 0, 0, 0.40);
+  --c-border:          rgba(255, 255, 255, 0.10);
+  --c-divider:         rgba(255, 255, 255, 0.10);
+  --c-img-placeholder: rgba(30, 41, 59, 0.50);    /* slate-800/50          */
+
+  /* ── Button glow tokens – dark mode ── */
+  --btn-gradient-glow:  rgba(34, 211, 238, 0.45);
+  --btn-ghost-glow:     rgba(34, 211, 238, 0.25);
+
+  /* Focus ring */
+  --btn-focus-ring:        #67e8f9;
+  --btn-focus-ring-offset: var(--site-bg);
+
+  /* Disabled */
+  --btn-disabled-bg:   rgba(255, 255, 255, 0.07);
+  --btn-disabled-text: #94a3b8;   /* slate-400 on dark → 5.4:1 ✓ */
+}
+
+@layer base {
+  p {
+    line-height: 1.75;
+  }
+
+  .text-gray-600 {
+    color: var(--text-secondary-strong) !important;
+  }
+
+  .text-gray-500 {
+    color: var(--text-secondary) !important;
+  }
+
+  .text-gray-400 {
+    color: var(--text-secondary-light) !important;
+  }
+}
 
 /* Fix viewport issues on mobile */
 html {
@@ -9,28 +298,237 @@ html {
 
 body {
   -webkit-overflow-scrolling: touch;
+  /* Safety-net: hide horizontal scroll on body only.
+     Applying overflow-x:hidden to *html* as well is known to break
+     position:fixed in some browsers, so we scope it to body here.
+     The real overflow sources are fixed via overflow:clip on
+     .layout-root (glow pseudo-elements extend with negative insets). */
+  overflow-x: hidden;
 }
 
 /* Prevent horizontal scrolling on mobile */
 * {
   box-sizing: border-box;
+  min-width: 0;        /* let flex/grid children shrink below content size */
 }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
+/* Ensure media elements don't exceed their container width */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Minimal, clean animations */
+/* iframes are explicitly sized via classes (e.g. h-full inside an aspect-ratio
+   container). Exclude them from the height:auto rule to avoid conflicts. */
+iframe {
+  max-width: 100%;
+}
+
+/* NOTE: the former "html, body { overflow-x: hidden; max-width: 100vw }" rule
+   has been removed.
+   • max-width:100vw includes the scrollbar width on Windows (~17 px), which
+     itself caused 1-2 px of horizontal overflow that the hidden rule masked.
+   • overflow-x:hidden on <html> breaks position:fixed in some browsers.
+   Overflow is now contained at the source (see .layout-root above). */
+
+/* ── Float ── */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
 }
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* ── Tech Stack Marquee ── */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-outer {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  will-change: transform;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.marquee-outer:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ── Gradient text  (cyan → purple) ── */
+.text-gradient {
+  background: radial-gradient(circle farthest-corner at center, var(--c-accent) 0%, var(--c-accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Hero background diagonal gradient + reveal ── */
+@keyframes hero-reveal {
+  0%   { background-size: 220%; background-position: 60% 50%; }
+  100% { background-size: 100%; background-position: 50% 50%; }
+}
+.hero-bg {
+  background: transparent;
+}
+.dark .hero-bg {
+  background: linear-gradient(-54deg, #190230 -23%, #442288 35%, #190230 65%);
+  background-size: 220%;
+  animation: hero-reveal 2.5s ease forwards;
+}
+
+/* ── Hero bottom fade ── */
+.hero-fade::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background: linear-gradient(to bottom, transparent, var(--site-bg));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Profile image soft-edge mask ── */
+.profile-mask {
+  -webkit-mask-image: radial-gradient(ellipse 88% 88% at center, black 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 88% 88% at center, black 52%, transparent 100%);
+}
+
+/* ── Nav link underline slide-in ── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: var(--c-accent);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+  transform: scaleX(1);
+}
+
+/* ── Card left accent border (slide down on hover) ── */
+.card-accent {
+  position: relative;
+}
+.card-accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--c-accent), var(--c-accent-2));
+  border-radius: 0 2px 2px 0;
+  transition: height 0.35s ease;
+  z-index: 2;
+}
+.card-accent:hover::before {
+  height: 100%;
+}
+
+.section-shell + .section-shell {
+  padding-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell + .section-shell {
+    padding-top: 4rem;
+  }
+}
+
+.js-reveal .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js-reveal .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a,
+button {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .modern-card,
+  .modern-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ── Semantic utility tokens ──────────────────────────────────────────────────
+   These read from the CSS vars above, so they auto-adapt to light / dark mode
+   without needing any `dark:` variant on the element.
+── */
+@layer utilities {
+  /* Accent tint — hover / active bg for nav links, menu items, etc. */
+  .bg-accent-tint               { background-color: var(--c-accent-tint); }
+  .hover\:bg-accent-tint:hover  { background-color: var(--c-accent-tint); }
+
+  /* Glass / frosted surfaces */
+  .bg-surface                   { background-color: var(--c-surface); }
+  .bg-surface-xs                { background-color: var(--c-surface-xs); }
+  .bg-footer-surface            { background-color: var(--c-footer-bg); }
+
+  /* Image / media placeholder slot */
+  .bg-img-slot                  { background-color: var(--c-img-placeholder); }
+
+  /* Border / divider helpers */
+  .border-ui                    { border-color: var(--c-border); }
+  .border-hairline              { border-color: var(--c-divider); }
+  .divide-hairline > :not([hidden]) ~ :not([hidden]) { border-color: var(--c-divider); }
+
+  /* Accent chip — used on skill / education / leadership tags */
+  .tag-accent {
+    background-color: var(--c-accent-tint);
+    color: var(--c-accent);
+    border: 1px solid var(--c-accent-border);
+  }
 }
