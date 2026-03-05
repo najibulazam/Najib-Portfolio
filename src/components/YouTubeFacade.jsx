@@ -8,12 +8,16 @@ import { useState } from 'react';
 export default function YouTubeFacade({ youtubeId, title }) {
   const [active, setActive] = useState(false);
 
+  // Guard against unexpected values being injected into URLs
+  const safeId = /^[\w-]{11}$/.test(youtubeId) ? youtubeId : null;
+  if (!safeId) return null;
+
   if (active) {
     return (
       <iframe
         className="w-full h-full block"
         style={{ border: 'none' }}
-        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+        src={`https://www.youtube.com/embed/${safeId}?autoplay=1&rel=0`}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
@@ -30,7 +34,7 @@ export default function YouTubeFacade({ youtubeId, title }) {
     >
       {/* Thumbnail */}
       <img
-        src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+        src={`https://img.youtube.com/vi/${safeId}/hqdefault.jpg`}
         alt={`${title} thumbnail`}
         className="w-full h-full object-cover transition-opacity duration-300 group-hover/facade:opacity-80"
         width="480"

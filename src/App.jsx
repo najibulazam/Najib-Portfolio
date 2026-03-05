@@ -19,12 +19,14 @@ export default function App() {
   return (
     <Layout>
       <Navbar />
-      <Home />
-      <Experience />
-      <Projects />
-      <Education />
-      <Leadership />
-      <Contact />
+      <main>
+        <Home />
+        <Experience />
+        <Projects />
+        <Education />
+        <Leadership />
+        <Contact />
+      </main>
       <Footer />
       <BackToTop />
     </Layout>

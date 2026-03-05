@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="text-xs">GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/najibulazam"
+              href="https://www.linkedin.com/in/najibulazam/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-gray-500 hover:text-accent hover:scale-110 transition-all duration-300"
@@ -76,7 +76,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://linkedin.com/in/najibulazam"
+                href="https://www.linkedin.com/in/najibulazam/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-gray-600 hover:text-accent transition-colors duration-300"

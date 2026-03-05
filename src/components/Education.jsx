@@ -52,6 +52,7 @@ export default function Education() {
               className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto sm:mx-0 rounded-lg"
               width="80"
               height="80"
+              loading="lazy"
             />
             <div className="text-center sm:text-left w-full">
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
@@ -86,7 +87,7 @@ export default function Education() {
           >
             <h4 className="font-semibold text-base mb-2">{cert.title}</h4>
             <div className="flex items-center gap-2 mb-1">
-              <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" width="20" height="20" />
+              <img src={cert.logo} alt={cert.issuer} className="w-5 h-5 object-contain" width="20" height="20" loading="lazy" />
               <p className="text-sm text-gray-600">{cert.issuer}</p>
             </div>
             <p className="text-xs text-gray-500 mt-1 mb-3">{cert.year}</p>

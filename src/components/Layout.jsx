@@ -45,5 +45,5 @@ export default function Layout({ children }) {
     return () => observer.disconnect();
   }, []);
 
-  return <main className="layout-root">{children}</main>;
+  return <div className="layout-root">{children}</div>;
 }

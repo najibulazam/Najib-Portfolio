@@ -97,7 +97,7 @@ export default function Navbar() {
                 <span className="text-xs font-medium hidden lg:inline">GitHub</span>
               </a>
               <a 
-                href="https://linkedin.com/in/najibulazam" 
+                href="https://www.linkedin.com/in/najibulazam/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center gap-1.5 text-accent hover:text-accent-hover transition-colors duration-300 px-2 py-1 rounded-lg hover:bg-accent-tint"
@@ -161,7 +161,7 @@ export default function Navbar() {
               <span className="text-xs font-medium">GitHub</span>
             </a>
             <a 
-              href="https://linkedin.com/in/najibulazam" 
+              href="https://www.linkedin.com/in/najibulazam/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
