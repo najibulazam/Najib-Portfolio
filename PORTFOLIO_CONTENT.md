@@ -46,14 +46,19 @@ Creating responsive interfaces with React and Vite. API integration and modern U
 
 ## Experience Section
 
-### Shwapnobunon – Sustainable E-commerce Platform
-**Role:** Full-Stack Developer (Contract)
-**Duration:** Dec 2025 - Present
-**Live Site:** https://shwapnobunon.com
+### Freelance Full Stack Developer
+**Organization:** Self-Employed (Fiverr) | Fiverr Profile
+**Duration:** Feb 2026 - Present
 
-Delivered a production-ready full-stack e-commerce platform for a sustainability-focused client, handling end-to-end development from requirements to deployment. Built secure backend services with FastAPI and PostgreSQL (Supabase), developed customer-facing and admin interfaces using React with protected access, and implemented authentication, email notifications, and file storage. Deployed and maintained all services on Vercel, working closely with non-technical stakeholders to iterate quickly and ship features into production.
+Build and deliver full-stack web applications using Django, FastAPI, and React. Design scalable backend APIs and integrate AI-powered capabilities for modern applications. Collaborate with clients to translate requirements into production-ready solutions.
 
-**Tech Stack:** Python, FastAPI, React, PostgreSQL, Supabase, JWT, Vercel
+**Tech Stack:** Python, Django, FastAPI, React, PostgreSQL, REST APIs, Git
+
+### Co-Founder
+**Organization:** AI Extension Website
+**Duration:** Jun 2024 - Present
+
+Co-founded a student-led platform focused on AI, software development, and emerging technologies. Organized and conducted workshops on Python, Pandas, and machine learning fundamentals. Collaborated on building AI-driven projects and automation tools for real-world applications.
 
 ---
 

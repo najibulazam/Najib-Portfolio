@@ -3,73 +3,100 @@ import SectionHeading from './SectionHeading';
 import Section from './Section';
 import ModernCard from './ModernCard';
 import PrimaryButton from './PrimaryButton';
-import shwapnobunonImage from '../assets/shwapnobunon.webp';
+import fiverrLogo from '../assets/Fiverr-Logo.webp';
+import aexWallpaper from '../assets/aex-wallpaper.webp';
 
-const experience = {
-  id: 1,
-  title: 'Shwapnobunon – Sustainable E-Commerce Platform',
-  techStack: 'React · FastAPI · PostgreSQL · Supabase · Vercel',
-  role: 'Freelance Full-Stack Developer',
-  duration: 'Dec 2025 - Present',
-  keyPoints: [
-    'Client project: End-to-end ownership from requirements gathering to production deployment',
-    'Built complete e-commerce platform with FastAPI/PostgreSQL backend, React frontend, and secure authentication',
-    'Collaborated with non-technical client to translate business needs into technical deliverables',
-    'Deployed to production on Vercel, serving real customers with order management and automated workflows',
-  ],
-  image: shwapnobunonImage,
-  liveUrl: 'https://shwapnobunon.com',
-};
+const experiences = [
+  {
+    id: 1,
+    title: 'Freelance Full Stack Developer',
+    organization: 'Self-Employed (Fiverr)',
+    duration: 'Feb 2026 - Present',
+    image: fiverrLogo,
+    imageAlt: 'Fiverr brand logo',
+    profileUrl: 'https://www.fiverr.com/najib_dev_ai',
+    profileLabel: 'Fiverr Profile',
+    techStack: 'Python · Django · FastAPI · React · PostgreSQL · REST APIs · Git',
+    keyPoints: [
+      'Build and deliver full-stack web applications using Django, FastAPI, and React.',
+      'Design scalable backend APIs and integrate AI-powered capabilities into modern products.',
+      'Collaborate with clients to translate requirements into production-ready solutions.',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Co-Founder',
+    organization: 'AI Extension Website',
+    duration: 'Jun 2024 - Present',
+    image: aexWallpaper,
+    imageAlt: 'AI Extension logo',
+    profileUrl: 'https://www.aiextension.org/',
+    profileLabel: 'AI Extension Website',
+    techStack: 'Python · Pandas · Machine Learning · Automation · Technical Workshops',
+    keyPoints: [
+      'Co-founded a student-led platform focused on AI, software development, and emerging technologies.',
+      'Organized and delivered workshops on Python, Pandas, and machine learning fundamentals.',
+      'Collaborated on AI-driven projects and automation tools for real-world use cases.',
+    ],
+  },
+];
 
 export default function Experience() {
   return (
     <Section id="experience" ariaLabel="Experience Section">
       <SectionHeading>Experience</SectionHeading>
 
-      <ModernCard
-        className="card-accent group overflow-hidden"
-      >
-        <div className="flex flex-col md:flex-row">
-          {/* Image Section */}
-          <div className="relative bg-img-slot overflow-hidden flex flex-col w-full h-[260px] md:h-auto md:w-[280px] lg:w-[360px] md:shrink-0">
-            <img
-              src={experience.image}
-              alt={`${experience.title} project screenshot`}
-              className="flex-1 min-h-0 w-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none"></div>
-          </div>
+      <div className="grid gap-6 sm:gap-8">
+        {experiences.map((item) => (
+          <ModernCard
+            key={item.id}
+            className="card-accent p-6 lg:p-8"
+          >
+            <div className="flex items-start gap-4 mb-4">
+              <img
+                src={item.image}
+                alt={item.imageAlt}
+                loading="lazy"
+                decoding="async"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover bg-img-slot border border-hairline shadow-sm shrink-0"
+              />
 
-          {/* Text Content */}
-          <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
-              <span className="text-gradient">{experience.title}</span>
-            </h3>
-            <p className="text-accent text-sm mb-3 font-medium tracking-wide">{experience.techStack}</p>
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0 mb-4">
-              <p className="text-gray-500 text-xs uppercase tracking-[0.2em]">{experience.role}</p>
-              <p className="text-gray-500 text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em]">{experience.duration}</p>
+              <div className="min-w-0">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900 dark:text-white">
+                  <span className="text-gradient">{item.title}</span>
+                </h3>
+
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-3">
+                  <p className="text-gray-500 text-xs uppercase tracking-[0.2em]">{item.organization}</p>
+                  <p className="text-gray-500 text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em]">{item.duration}</p>
+                </div>
+              </div>
             </div>
 
+            <p className="text-accent text-sm mb-4 font-medium tracking-wide">Tech Stack: {item.techStack}</p>
+
             <ul className="text-gray-700 dark:text-gray-300 text-sm space-y-2 list-disc list-inside mb-6">
-              {experience.keyPoints.map((point, idx) => (
+              {item.keyPoints.map((point, idx) => (
                 <li key={idx} className="leading-relaxed">{point}</li>
               ))}
             </ul>
-            <PrimaryButton
-              href={experience.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={<FaExternalLinkAlt className="transition-transform duration-300 group-hover:translate-x-0.5" />}
-              onClick={(e) => e.stopPropagation()}
-              aria-label={`Visit live site: ${experience.title}`}
-              className="w-full sm:w-auto"
-            >
-              Visit Live Site
-            </PrimaryButton>
-          </div>
-        </div>
-      </ModernCard>
+
+            {item.profileUrl && (
+              <PrimaryButton
+                href={item.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="ghost"
+                icon={<FaExternalLinkAlt className="transition-transform duration-300 group-hover:translate-x-0.5" />}
+                aria-label={`Visit ${item.profileLabel}`}
+                className="w-full sm:w-auto"
+              >
+                {item.profileLabel}
+              </PrimaryButton>
+            )}
+          </ModernCard>
+        ))}
+      </div>
     </Section>
   );
 }

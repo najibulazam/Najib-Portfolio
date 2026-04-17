@@ -4,7 +4,7 @@ import ModernCard from './ModernCard';
 import PrimaryButton from './PrimaryButton';
 import ostadLogo from '../assets/ostad_logo.webp';
 import harvardLogo from '../assets/harvard_logo.webp';
-import hstuLogo from '../assets/hstu.png';
+import hstuLogo from '../assets/hstu.webp';
 
 const educationData = [
   {

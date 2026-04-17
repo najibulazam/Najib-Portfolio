@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
-import logo from '../assets/dev-logo.svg';
 import PrimaryButton from './PrimaryButton';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'experience', label: 'Experience' },
+  { id: 'real-work', label: 'Real Work' },
   { id: 'projects', label: 'Projects' },
   { id: 'education', label: 'Education' },
   { id: 'leadership', label: 'Leadership' },
@@ -62,7 +62,14 @@ export default function Navbar() {
             className="flex items-center gap-3 text-xl font-bold cursor-pointer select-none hover:opacity-80 hover:scale-105 transition-all duration-300 bg-transparent border-0 outline-none"
             aria-label="Go to home section"
           >
-            <img src={logo} alt="Najib Logo" className="h-8 w-8 sm:h-8 sm:w-8 rounded-lg" />
+            <img
+              src="/dev-logo.svg"
+              alt="Najib Logo"
+              className="h-8 w-8 sm:h-8 sm:w-8 rounded-lg"
+              width="32"
+              height="32"
+              decoding="async"
+            />
             <span className="text-accent text-xl sm:text-2xl">Najib</span>
           </button>
 
@@ -149,39 +156,43 @@ export default function Navbar() {
             </li>
           ))}
 
-          <div className="mt-6 flex justify-center gap-6">
-            <a 
-              href="https://github.com/najibulazam" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
-              aria-label="GitHub Profile"
-            >
-              <FaGithub className="text-2xl" />
-              <span className="text-xs font-medium">GitHub</span>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/najibulazam/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
-              aria-label="LinkedIn Profile"
-            >
-              <FaLinkedin className="text-2xl" />
-              <span className="text-xs font-medium">LinkedIn</span>
-            </a>
-          </div>
+          <li className="mt-6">
+            <div className="flex justify-center gap-6">
+              <a 
+                href="https://github.com/najibulazam" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
+                aria-label="GitHub Profile"
+              >
+                <FaGithub className="text-2xl" />
+                <span className="text-xs font-medium">GitHub</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/najibulazam/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex flex-col items-center gap-1 text-accent hover:text-accent-hover transition-colors duration-300"
+                aria-label="LinkedIn Profile"
+              >
+                <FaLinkedin className="text-2xl" />
+                <span className="text-xs font-medium">LinkedIn</span>
+              </a>
+            </div>
+          </li>
 
-          <PrimaryButton
-            href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            icon={<FaDownload className="text-base" />}
-            aria-label="Download Resume"
-            className="mt-4 w-full justify-center"
-          >
-            Resume
-          </PrimaryButton>
+          <li>
+            <PrimaryButton
+              href="/Md_Najib_Ul_Azam_Mahi_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<FaDownload className="text-base" />}
+              aria-label="Download Resume"
+              className="mt-4 w-full justify-center"
+            >
+              Resume
+            </PrimaryButton>
+          </li>
         </ul>
       )}
     </header>

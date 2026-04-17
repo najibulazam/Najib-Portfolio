@@ -10,6 +10,16 @@ export default function Layout({ children }) {
 
     if (elements.length === 0) return undefined;
 
+    const revealInView = () => {
+      elements.forEach((el) => {
+        if (el.classList.contains('is-visible')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          el.classList.add('is-visible');
+        }
+      });
+    };
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       elements.forEach((el) => el.classList.add('is-visible'));
       return undefined;
@@ -33,16 +43,26 @@ export default function Layout({ children }) {
 
     elements.forEach((el) => observer.observe(el));
 
-    requestAnimationFrame(() => {
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.9) {
-          el.classList.add('is-visible');
-        }
-      });
-    });
+    requestAnimationFrame(revealInView);
 
-    return () => observer.disconnect();
+    let ticking = false;
+    const onScrollOrResize = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        revealInView();
+        ticking = false;
+      });
+    };
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+    };
   }, []);
 
   return <div className="layout-root">{children}</div>;

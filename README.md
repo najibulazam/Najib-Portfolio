@@ -103,7 +103,7 @@ src/
 public/
 ├── robots.txt               # SEO crawl rules
 ├── sitemap.xml              # XML sitemap
-└── Md_Najib_Ul_Azam_Mahi_CV.pdf
+└── Md_Najib_Ul_Azam_Mahi_Resume.pdf
 ```
 
 ---
@@ -130,28 +130,21 @@ npm run preview  # Preview production build
 
 ## 🎯 Featured Projects
 
-### 1. Shwapnobunon - Sustainable E-commerce Platform (Client Project)
-Full-stack e-commerce platform built for a sustainability-focused client with end-to-end development from requirements to deployment.
-
-**Tech Stack:** FastAPI, React, PostgreSQL (Supabase), Vercel
-
-**Live Site:** [shwapnobunon.com](https://shwapnobunon.com)
-
-### 2. Organic E-Commerce Platform with RAG AI Chatbot
+### 1. Organic E-Commerce Platform with RAG AI Chatbot
 Full-stack e-commerce platform with AI-powered product recommendations using RAG architecture.
 
 **Tech Stack:** Django REST, React, PostgreSQL, RAG, Groq LLaMA 70B, Sentence Transformers
 
 **GitHub:** [View Repository](https://github.com/najibulazam/Organic-E-Commerce-Store-with-RAG-AI-Chatbot)
 
-### 3. AI-Powered Resume Screening System
+### 2. AI-Powered Resume Screening System
 Multi-agent AI system for automated resume screening with explainable decisions.
 
 **Tech Stack:** FastAPI, React, Multi-Agent AI, Groq LLaMA, NLP
 
 **GitHub:** [View Repository](https://github.com/najibulazam/AI-Powered-Resume-Screening-System)
 
-### 4. AI-Enhanced Online Voting System
+### 3. AI-Enhanced Online Voting System
 Secure voting platform with JWT authentication and AI-generated analytics.
 
 **Tech Stack:** Django REST, React, JWT, Groq LLaMA, AI Analytics
@@ -180,7 +173,7 @@ Secure voting platform with JWT authentication and AI-generated analytics.
 **Email:** azam.mdnajibul@gmail.com  
 **LinkedIn:** [linkedin.com/in/najibulazam](https://linkedin.com/in/najibulazam)  
 **GitHub:** [github.com/najibulazam](https://github.com/najibulazam)  
-**WhatsApp:** +880 1978264938
+**WhatsApp:** +880 1572918091
 
 ---
 
