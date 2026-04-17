@@ -26,7 +26,7 @@ const experiences = [
   {
     id: 2,
     title: 'Co-Founder',
-    organization: 'AI Extension Website',
+    organization: 'AI Extension',
     duration: 'Jun 2024 - Present',
     image: aexWallpaper,
     imageAlt: 'AI Extension logo',
